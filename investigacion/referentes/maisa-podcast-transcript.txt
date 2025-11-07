@@ -1,0 +1,1087 @@
+# tactiq.io free youtube transcript
+# No title found
+# https://www.youtube.com/watch/qXz8PSMXpBk
+
+00:00:00.000 No text
+00:00:00.280 O sea, no hay nadie haciendo lo que vosotros hacéis. Tal cual, ¿no? Eh, antes de empezar a grabar, dices que todos los approaches que la gente está
+00:00:06.279 haciendo a día de hoy para hacer agentes están condenados al fracaso. Sí. Lo que nosotros hacemos es permitir
+00:00:11.679 que con lenguaje natural tú puedas hacer unboardín a un trabajador digital, acompañado por la plataforma se autoconfigura y la clave está que el
+00:00:18.240 trabajo que hace es totalmente auditable y si le vuelves a dar los mismos datos, vuelves a tener la misma solución. La
+00:00:23.560 información está superfaggmentada. Entonces tienes que conectarlo a distintas fuentes de información y que además van cambiando.
+00:00:29.080 Hay un montón de IPs externos, credenciales, cosas, tokens revocados y todo esto. ¿Cómo cómo soporte todo esto
+00:00:37.520 ecosistema? Aquí lo que los modelos te cuentan que están haciendo no es verdad, que están pensando no es verdad. Todas las tareas
+00:00:42.879 que se llevan a cabo para la resolución del problema se hacen con código. ¿Quién quién escribe el código y cuándo? O sea, en tiempo en tiempo de ejecución
+00:00:50.079 va escribiendo el código. Nosotros esto que está pasando es muy común. O sea, si tú vienes con un cambio
+00:00:55.199 paradigma es normal el challenge. Mola tener la mente abierta. Hablando de mente abierta, AGI.
+00:01:01.160 Eh, mira, mi opinión de la AGI. Bienvenido a las historias de Startups
+00:01:05.000 No text
+00:01:07.080 de INY. Bienvenidos una semana más al podcast de IDNIC. Yo soy Bernard Ferrero. Hoy estoy
+00:01:13.840 con Ilet, CTO de Factorial. ¿Qué tal, Il? Hola, hola a todos, todo bien. Gracias. Y estamos con David de Maisa.
+00:01:19.920 Sí. Eh, David Villalón, eso es de Valencia. Así es. Muy bien.
+00:01:25.240 Valenciano. Valenciano. Oye, tú e estás construyendo
+00:01:30.280 la manera correcta, tal como tú dices, de hacer agentes o de hacer automatización agéntica.
+00:01:36.399 Sí. Para Enterprise. Sí. Eh, antes de empezar a grabar, dices que todos los approaches que la gente está
+00:01:42.439 haciendo a día de hoy para hacer agentes están condenados al fracaso. Sí.
+00:01:50.600 Pero vosotros tenéis la manera. Sí. Vale. ¿Me puedes explicar For Damis? Em,
+00:01:56.320 ¿qué es lo que está haciendo el mercado hoy? ¿Por qué está mal? ¿Y qué estáis haciendo vosotros?
+00:02:02.439 Sí, yo creo que sí. Venga. O sea, no es que esté mal, ¿eh? y que
+00:02:09.720 hay que entender que el mercado principalmente no está mirando lo que va a pasar en el futuro. Es decir, lo que ellos no
+00:02:15.680 entienden es que hay varios puntos, ¿no? Eh, la IA está construida encima de los lls. Entonces, ya asumimos que tiene
+00:02:22.160 alucinaciones por defecto, aunque se vayan reduciendo y que no es fiable, es decir, que es uniable, que me dé un
+00:02:27.480 resultado, no quiere decir que me vaya a volver a dar el mismo resultado con los mismos datos. Entonces, empiezas por ahí. Luego lo que ocurre es que hay otro
+00:02:34.239 punto que es la velocidad. A día de hoy la llavan en slow motion, todavía va un poquito despacito y me da tiempo a más
+00:02:39.480 menos seguir la velocidad que sigue. Pero cuando tengamos 500,000 tokens por segundo, que viene a ser,
+00:02:45.280 ¿cuántos tenemos hoy? Máximo llegas a unos 3000 con Grock o con cerebras system,
+00:02:50.440 pero con modelo. Exactamente. Con cerebras system, por eso digo máximo. Llegas a 3000 con en
+00:02:56.280 plan GPUs especializadas como LPUs de la empresa Grock especializadas en eso.
+00:03:04.080 Sí. La edad del mercado, 80 60 tokens on average por segundo. Exactamente. Vale. Y y luego hay una ventana de
+00:03:10.360 contexto que tiene un límite de un millón. Y luego tienes el concepto de la ventana de contexto que tienes pues unos 1
+00:03:16.319 millón tienes con 4.1 con el modelo 4.1 de Openi Ahora tienes eh 2 millones con
+00:03:22.280 Gémini que son 10 también y que todo eso va a seguir creciendo. De todas maneras una ventana de contexto más grande no
+00:03:28.120 implica que funcione mejor. Hay un paper eh que se llama Lima, que mi cofundador
+00:03:33.560 Manu, que sabe muchísimo de ella, eh eh siempre pone el ejemplo que te prueba que a partir de cierto nivel de 128,000
+00:03:38.000 No text
+00:03:40.720 tokens el performance decae. Entonces no es que aunque tengas un millón no quiere decir que pueda llenar un millón de de
+00:03:46.599 datos. Pero esto no tiene por qué siempre ser así, no entiendo que yo estoy planteando el problema eh un poco general, no tiene por qué ser
+00:03:52.799 hablas de que va a evolucionar eh o sea, puede ser que evolucione los del LMEMS y que puedan digerir una ventana
+00:03:58.239 de contexto, puedan dar buenos resultados con una ventana de contexto más grande o no. Sí, yo creo que sí. O sea, el esto va a seguir avanzando un montón, o sea, todo
+00:04:05.040 el mercado está enfocado en seguir resolviendo estos problemas, pero por la naturaleza de los modelos siguen siendo
+00:04:10.560 modelos probabilísticos y vas a seguir teniendo el problema, aunque reducido de las alucinaciones, que yo no creo que
+00:04:16.000 también sea o sea también es una ventaja porque permite a los modelos ser creativos y Carpaz decía que los modelos
+00:04:22.040 eh alucinan por defecto, es decir, que alucinan todo el rato, solo que el 99% lo hacen de veces como nosotros
+00:04:28.160 queremos. Eh, entonces tiene sentido, pero si tú unes esos problemas eh eh ya
+00:04:35.120 te plantean un reto para solucionarlo, pero supongo que escuchas al mercado y dices, "Vale, voy a montar un rag
+00:04:40.400 avanzado, entonces voy a meterle un knowledge graph, eh, un code interpreter, porque lo mismo me puede ayudar a como tool y voy a ponerle
+00:04:46.960 function calls, es decir, voy a voy a [ __ ] la API de Open AI y voy a ponerle
+00:04:52.160 eh herramientas, ¿no? Y yo incluso servidores MCP que está muy de moda ahora. Vale, ¿podemos explicar todo esto
+00:04:58.120 que has dicho? Sí. ¿Qué es un rag? Un rag es retrieval aumentation. Un rag es un concepto y quiere decir que tú
+00:05:04.479 tienes, no es que, o sea, rag no hay una forma solo de hacer rag. Rag es un concepto y es retrieval aumented
+00:05:10.840 generation y significa que cogiendo información extra a, o sea, tú llenas de información la ventana de contexto del
+00:05:17.320 modelo, eh, a información extra para ayudar a contextualizar la respuesta o
+00:05:22.360 la pregunta que un cliente, por ejemplo, ha hecho y llenas de información y tú luego
+00:05:27.440 comprar uninaring pues lo ordenas dentro del contexto. Y digo que es un concepto porque hay muchas formas de solucionar
+00:05:34.000 el rag. Tú puedes hacer embeddings, luego eh que son eh un tipo de modelos,
+00:05:39.600 o sea, luego tú puedes añadir graphs eh o sea, es decir, grafos de conocimiento,
+00:05:46.639 eh para todavía hacer una búsqueda híbrida que se llama, o sea, tú puedes luego hacer distintas estrategias para
+00:05:52.759 cómo tú recuperas esa información y la metes dentro de la ventana de contexto.
+00:05:58.400 Nosotros y luego cómo coges el output, ¿eh? No, y validas que que es correcto, ¿no? O sea,
+00:06:04.400 es, o sea, tú no sabes si lo que te has traído es correcto. Nosotros ya cuando nosotros arrancamos con Maya hace 2
+00:06:10.440 años, o sea, porque también has has sido muy fuerte, yo creo que el mercado por
+00:06:16.440 esa dirección tiene casos de uso, o sea, no estoy diciendo que a funcionar, tiene casos de uso. Bueno, has sido tú mismo, eh,
+00:06:21.759 pero sí, pero en industrias reguladas sí que lo veo más, ¿cierto? Industrias reguladas sí que lo veo. O sea, industrias reguladas básicamente
+00:06:27.000 No text
+00:06:27.360 enterprise, o sea, para empresas, ¿no?, que quieran utilizar agentes de forma segura, ¿sí?
+00:06:32.680 Para automatizar la información de forma determinística, sabiendo y pudiendo trazar lo que está haciendo la gente y sabiendo cuál es el resultado en liarla.
+00:06:39.680 Sí, lo que nosotros hacemos, eh, y te respondo porque luego lo otro no es cara, porque falta un punto que es
+00:06:44.720 cuando llegas a producción lo que tienes que empezar a tener que hacer, ¿vale? Lo que nosotros hacemos es permitir que con
+00:06:49.919 lenguaje natural tú puedas hacer un boardín a un trabajador digital, es decir, tú puedas definir con lenguaje natural cuál es el proceso que quieres
+00:06:56.160 que haga, no la tarea, el proceso en to end y acompañado por la plataforma se autoconfigura y una vez lo tienes hecho,
+00:07:02.479 lo puedes desplegar y la clave está que el trabajo que hace eh es totalmente auditable y si le vuelves a dar los
+00:07:09.280 mismos datos, vuelves a tener la misma solución y además permite tener gobierno
+00:07:14.680 de datos y evaluaciones autónomas de performance. Eh, eso es lo que nosotros permitimos.
+00:07:20.080 Entonces, no tienen que hacerlo mal los técnicos. Lo pueden hacer las personas que hacen las tareas, que son las que tienen el knohow, no la gente que es
+00:07:25.879 técnica, porque pueden hacer onboarding con lenguaje natural, no son cajitas con flechas, con eh construcción de flujos,
+00:07:32.800 que justamente ayer Open AI anunció eso no es eso, porque nadie sabe hacer eso, ¿eh? o bueno, toda la gente que vende
+00:07:38.919 automatizaciones tiene 8 NI, pero eh el 99% de la gente no, no está claro. Y y luego nuestra
+00:07:46.199 propuesta de valor se basa en esa trazabilidad real como fundamento, como trust, eh, y a partir de eso luego
+00:07:53.639 permitir que cualquier persona sea capaz de hacer onboarding a ese trabajador y tal y compartirlo con su equipo o
+00:07:59.599 conectarlo a cada vez que me cambie el SharePoint que me ocurra x cosa, eh, que me se me añada un fichero en Google
+00:08:05.400 Drive que ocurra x cosa. ¿Y eso está funcionando hoy en producción? Sí, tenemos que hacer de uso en producción funcionando
+00:08:11.199 desde hace cuándo es hace unos meses. Hace solo unos meses, sí. O sea, nosotros hicimos la
+00:08:16.960 tecnología. Bueno, realmente el primero fue a inicio de este año, o sea, a finales de año pasado ya tuvimos el primero en producción.
+00:08:22.639 El primer trabajador digital, tal y como tú dices, es un agente, ¿no? Exactamente. Sí. La diferencia es que
+00:08:28.120 una agente tú preguntas y son muchas cosas, para mí un trabajador digital ya te ya te define un propósito que es
+00:08:34.479 trabajar, es hacer una tarea y tú no contratarías a un trabajador digital. Es una tarea. Procesos una tarea, me
+00:08:40.640 refiero. Bu, esa es una conversación interna que hemos tenido de qué es tarea o proceso. Es superamplia.
+00:08:46.600 Cuando me refiero a tarea, me refiero a objetivos, ¿no? Un caso de uso puede ser un un
+00:08:52.160 cierre contable. Eh, hay una tarea que el humano es hacer un cierre contable, pero el humano entiende. Buena suerte haciendo un cierre
+00:08:58.200 contable. Lo sé, lo sé, pero estamos se hacen. Pero esto sí que es indeterminístico.
+00:09:03.279 En un cierre contable puede aparecer cualquier cosa. Sí. Y puede aparecer que fallen datos, que una columna esté mal, que tengas una
+00:09:10.200 invoice que no cuadre, pueda. Claro, por eso no puedes hacer un workflow predefinido. Por eso nosotros no hacemos cajitas con
+00:09:15.880 flechas. De entre las tareas que hacéis es un cierre contable también. Sí, tenéis un trabajador digital desde
+00:09:21.040 principios de año haciendo qué el primero era eh gestión de facturas.
+00:09:26.240 El primero, ¿qué significa gestión de facturas? Invoice processing de toda la vida, pero que no es tan trivial. ¿Qué significa processing?
+00:09:31.320 Que quiere decir que tú recibías una factura. Esto era para un gran una gran porque ahora en pasado estructura. Sí,
+00:09:37.920 sí, sí que está, sí que está. Vale, vale. Ah, es ahora entraremos en en doble clics. 50 dobles clics.
+00:09:43.920 Sí que está, sí que está. Eh, y hablaban pasado simplemente porque ha sigido evolucionando. Yo te digo donde empezó
+00:09:49.839 el cuál era el problema, que ya no es un problema porque está resuelto, ¿vale? El problema era que, y además es
+00:09:55.680 un problema no resuelto en el mercado, que la gestión de facturas suena sencillo. Yo cojo un PDF,
+00:10:00.959 a veces escanners, le hago un OCR, traigo la información y técnicamente la
+00:10:06.079 gente se cree que eso ya es el fin, pero la realidad está que muchas veces tienes que hacer conciliaciones. Tú te viene una factura y tienes además que ver si
+00:10:13.000 el vendor existe y luego tienes que ver si esa transacción la tienes ya contabilizada o no antes de subir al sistema y luego el output además tiene
+00:10:18.880 que ser un Jason en este caso y el Outputus se tiene que postear en una base de datos. Eh, entonces
+00:10:25.440 esa tarea eh con RPAS antiguos, que era la la otra capa de automatización que existía, que es el Robot Process
+00:10:31.839 automation. Esto lleva 20 años haciendo, exactamente, pero tenía un performance del 65%. ¿Por qué? Porque, uy, es que el
+00:10:38.680 cliente me ha enviado tres facturas y el sistema tengo preparada para una factura. Y es que me han tres facturas y una es de la semana pasada, ¿eh? Y la
+00:10:45.920 otra es de hace 3 meses y la el mundo no es determinista. El mundo y la gente tú
+00:10:52.920 contratas a trabajar de esto y hay mucha filosofía. Podíamos dedicar otro podcast. Bueno, me refiero que bueno, ostras, sí,
+00:10:59.800 sí, son rabit. Me quiero decir que si tú contactas a gente es porque los
+00:11:06.200 casos de uso no son mecánicos, porque ocurren cosas que requieren que el humano comprenda. Entonces, el problema
+00:11:12.000 No text
+00:11:12.639 que había era que existía esta múltiple causística de es que a veces es un
+00:11:17.839 escáner y no y lo hace RMF. Es que y ¿qué ocurre al final? Que nosotros lo
+00:11:22.920 resolvimos. Eh, crear un trabajador digital cuya función era leer esa factura. Llamar al trabajador digital
+00:11:29.200 cuando tú lo despliegas se comparte para que lo puedas usar desde una UI o lo pongas conectado a que escuche un correo
+00:11:35.880 o tiene una API. Ellos en este caso eran desarrolladores. Entonces llaman a la API. Cada vez que reciben una factura,
+00:11:41.200 ellos llaman a la API y le envían la factura. Y el trabajador lo que hace es coge la factura, la entiende,
+00:11:47.760 eh se va a la base de datos de vendors que tienen, buscar si existe la base de datos de vendors, este vendor. El nombre
+00:11:54.920 a veces no hace uno, entonces tienen que saber buscar bien cuál es el vendor que tienen. Una vez encuentran el vendor, en
+00:12:00.240 caso de encontrarlo, buscan el ID. Con el ID del vendor se pone a buscar en la base de datos de transacciones,
+00:12:05.440 encuentran si la transacción está en el sistema y con eso elaboran un informe en JSON que luego el trabajador digital
+00:12:12.040 postea en la base de datos totalmente autónomo en toend y han pasado de un 65
+00:12:17.639 access rate a un 98 access rate, pero ya no es un 100, o sea, no es un 100. El problema es saber cuál es el 2%
+00:12:23.240 que no funciona y eso es lo que mais hace porque como yo no utilizo lenguaje natural, es decir,
+00:12:28.360 yo no hago chain of thought y el chain of thought hay un paper que se llama chain of thought is not explainability, es decir, cadena de pensamiento. Es lo
+00:12:34.839 que hacen los modelos, los razonadores. Eso prueba que el que es el paper que
+00:12:40.920 tenemos a que tenemos aquí. Prueba por esta frase tan killer que lo que los modelos te cuentan que están
+00:12:46.760 haciendo no es verdad, que están pensando no es verdad. Entonces, si yo pusiera otro modelo por encima revisar
+00:12:52.160 si lo ha hecho bien, no me vale de nada porque está revisando algo que no es verdad. Entonces, yo no puedo auditarlo.
+00:12:57.480 Pero si lo que yo he hecho, que es la clave de Maya, que nosotros innovamos creando una tecnología que se llama KPU
+00:13:02.800 Neless Procession Unit, ahora luego puedo explicar qué es, pero yo lo que he hecho es ha sido todo código,
+00:13:08.279 simplificado, ha sido todo código y en un entorno controlado. Yo sí que puedo poner luego un modelo mucho más
+00:13:13.360 inteligente por encima, un o GPT5, High, incluso el Provo para que me digas si
+00:13:18.920 ese código está bien tirado dadas unas instrucciones, un knoow, un eh y además
+00:13:25.079 la tarea no me la ha hecho la IA, me la ha hecho el código. Otra cosa es que la IA me haya definido el código que se tiene que hacer, pero me la ha hecho el
+00:13:31.800 código. Entonces, si yo vuelvo a dar los mismos datos y he tenido un success, yo vuelvo a tirar el mismo código. Pero los
+00:13:37.519 modelos de razonamiento hacen esto, construyen código determinista para resolver un problema. La pregunta es,
+00:13:42.959 no lo hacen. No, no, no, no es así, no sé, no hacen eso. Ellos a veces utilizan
+00:13:48.040 code interpreters como tool, entonces en un paso te va a utilizar Python. Sí, pero tú no controlas el entorno de ni
+00:13:53.600 siquiera de Python en el que lo está ejecutando. ¿Tú cuándo crees el código? En el momento, el momento de compilación, digamos, cuando
+00:13:59.639 se entenderá igualmente si luego hacemos una demo, pero yo lo creo el código después de tener cuando me entran los
+00:14:04.800 datos. Yo ya tengo un trabajador de F. En el momento se crea el código en el vuelo y se pero no se crea todo de golpe
+00:14:10.079 porque entonces ni se hace planning porque no conoce el problema que va el espectro del entorno en el que va a
+00:14:16.440 navegar o las circunstancias que se va a encontrar. Entonces, planning no funciona. Y luego, en segundo lugar, si
+00:14:22.040 se pone a generar un script larguísimo de Python para resolver el problema,
+00:14:27.320 asume muchas cosas que no tiene el contexto. Entonces, yo le voy diciendo que haga dos líneas de código. Claro, hacemos un paso atrás porque
+00:14:33.240 empezamos con, mira, todo el mundo está haciendo cosas incorrectas. Por eso compar ahora tenemos RAC, tenemos
+00:14:39.360 calling y tenemos esta descripción de agentes que es un trabajador virtual. ¿Por qué RAC to calling y todo esto best
+00:14:45.440 practices ahora no funciona y no llegan al 100%? O sea, no lo digo yo, 95% de proyectos
+00:14:51.160 según el reporte del MIT no han llegado y es lo que producción a producción y están dando retorno de inversión.
+00:14:57.959 Pero aquí tenemos que hacer también double clic. ¿Por qué? Porque tú también estás explicando que mira, tenemos toda la descripción perfecta que el empleado
+00:15:04.440 tiene que hacer y en mayoría de empresas esto no pasa. Sí, exactamente. Eh, te respondo ya, solo te digo que ese 2% nosotros podemos
+00:15:11.000 decirte que no es. Entonces es la una de las ventajas que tenemos porque eso es trast al final. Te podemos decir que se ha equivocado y podemos enrotarlo a un
+00:15:17.600 humano. ¿Y por qué ahora no está funcionando? Em, no es que no esté funcionando,
+00:15:23.279 porque hay casos de uso en los que sí que funciona. Customer service, si ese tipo de casos de uso sí que puede funcionar. Y el motivo principal es
+00:15:30.720 porque hm cuando tú vas a producción y es es
+00:15:37.279 justo similar a lo que estamos hablando, tú necesar
+00:15:42.639 de lo que está ocurriendo, ¿vale? Y no solo uno, este es uno de los primeros, si tú no te puedes fiar de lo que está ocurriendo, tienes que meter al humano,
+00:15:48.920 ¿vale? A revisar el resultado final, porque no te puedes fiar realmente de lo que está ocurriendo en el proceso, de
+00:15:54.000 que no hay ninguna alucinación. Entonces, si tú pones al humano en el resultado final para revisar la información y además no se puede fiar de
+00:16:01.519 realmente toda la traza que ha visto de lo que ha ocurrido ni incluso del contenido intermedio, el humano tiene
+00:16:07.440 que casi hacerlo al revés en decir, "Vale, ¿cómo ha llegado a este resultado?" intentar descifrar qué es
+00:16:13.399 cierto y qué es falso de todo lo que está viendo y tarda más tiempo en hacer eso muchas veces que en llevar a cabo la
+00:16:18.480 tarea. Entonces, hay un motivo de business por el que no funciona y es que no hay retorno de la inversión. Desde un
+00:16:23.839 punto de vista tecnológico, hay un problema muy grande y es que la mayoría de empresas, sobre todo las
+00:16:29.600 enterprises que iba dirigido el MIT, son están muy fragmentadas. La información está superfaggmentada, entonces tienes
+00:16:35.680 que conectarlo a distintas fuentes de información y que además van cambiando. Eh, son ambiguas, eh, se solapan,
+00:16:42.199 algunas son navegadores, algunas son son navegadores, otras son sistemas incluso más antiguos, eh, mainframes, otras son
+00:16:50.560 sí que los tienen como APIs, o sea, que buena suerte, otras no tienen políticas de de acceso.
+00:16:56.040 La parte de integración dentro del sistema es otra parte que parece trivial, pero no la es. Porque cuando tú
+00:17:02.079 tienes un trabajador digital es otro de los motivos que no se relaciona tanto con RAG, os hablo de un poco de lo que
+00:17:07.240 cuesta llevar a producción. Pongamos que yo tengo un trabajador que hace el cierre contable y es un trabajador que
+00:17:13.959 yo puedo tirarlo de forma autónoma para que se ejecute o se lo puedo dar a mi equipo para que cada uno haga el cierre contable de sus clientes porque soy un
+00:17:20.799 despacho de Vale, si ese trabajador tiene un service
+00:17:25.919 account, eh, es decir, tiene una cuenta de servicio sobre el sistema que hace la
+00:17:31.080 contabilidad, si David lo utiliza, eh, no debería de
+00:17:36.840 poder ver los permisos que otros tienen. todo ese tipo de cosas de no está, os lo
+00:17:42.320 digo, no está resuelto como tal de forma para este nuevo paradigma. Eso es otro problema enorme a nivel de
+00:17:47.679 integraciones. Sí, pero yo también estoy pensando que aquí tenemos máximos diferentes. Por un lado, tú puedes meter un LMA agente
+00:17:54.280 grandísimo que es una caja negra y tú no sabes qué está pasando y en este caso sí, tú no puedes verificar nada, es muy
+00:17:59.880 complejo y después es prompts de de miles de líneas. Pero por otro lado también puedes este problema muy muy
+00:18:07.120 largo pasar en trocitos y cada trocito verificar más que mira hay unema más pequeño, mucho más enfocado y hay
+00:18:14.159 structured output. Trac de output significa que si hay solo un límite de que el puede responder, no es una un
+00:18:19.880 texte grande. ¿Y cómo sabes que está bien? Y que claro, conals y todo esto, ¿sí? No, pero ¿cómo sabes que está bien el
+00:18:25.360 extractor de output? Es decir, ¿cómo sabes? No, eso tú puedes verificar también manera determística. Si esperas Jason
+00:18:30.880 con tres posibilidades, verifico, ¿cómo sabes que el contenido del Jason está mal? O sea, está bien. Te hablo de que
+00:18:37.880 de que si estás haciendo hablas de business de business concept aquí. Okay. Te te hablo de estás haciendo una extracción de un documento de escrituras
+00:18:43.799 constitucional. del apoderado, ¿vale? ¿Cómo sabes que ha encontrado realmente el apoderado correctamente en en en el
+00:18:50.600 proceso? Claro que ahora no puedes no puedes garantizar eso 100%, pero puedes llegar a 99 con un periodo.
+00:18:58.360 Sí, tienes un datos de IVALS para verificar todo esto. Y eso es para un caso de uso, o sea,
+00:19:03.520 tienes que todo eso para un caso de uso y las empresas tienen muchísimos que es un poco lo que hacemos nosotros al final
+00:19:09.440 lo que hacemos es trabajarlo desde código. Entonces, yo lo que te puedo decir es si en base a las instrucciones
+00:19:15.080 y al conocimiento que nosotros llamamos knoow, eh las ha seguido correctamente y
+00:19:20.159 está bien definido lo que es el apoderado en base a como la empresa lo entiende, porque hay distintas empresas que pueden tener perspectivas distintas
+00:19:27.200 y si ha seguido esa regla para hacer la extracción, ya sea utilizando regx o tú les especificas que nosotros le demos
+00:19:33.159 para seleccionar trozos de datos dentro de de documentos. Y yo con eso lo que sí que puedo
+00:19:39.039 verificarte es si lo ha entendido bien o lo ha entendido mal a la hora de extraerlo, si ha hecho extracción
+00:19:44.200 correctamente. Y si luego me das el mismo documento, voy a poder ejecutarte el mismo resultado sin sin cambio de
+00:19:50.360 como David, o sea, no me está quedando claro cómo qué haces tú diferente que la la
+00:19:55.640 porque dices reggex para saber el apoderado, pero es que tú puedes no saber que estás buscando el apoderado. Sí, lo que hacemos nosotros diferente es
+00:20:01.799 que la resolución del problema lo hace eh no es la I haciéndome por por
+00:20:08.360 inferencia dándome el resultado de la extracción. Todo lo que todas las tareas que se llevan a cabo para la resolución
+00:20:14.200 del problema se hacen con código. Ya, esto ya lo he entendido. ¿Quién quién escribe el código y cuándo?
+00:20:20.039 ¿Cuándo? Cuando le das al botón de toma los datos, empieza a hacer la tarea, ahí empieza a escribir el código, pero no lo
+00:20:26.120 escribe todo de golpe, escribe un pasito, ve que tal ha ido, con lo tal ese ve que tal ha ido en tiempo en tiempo de ejecución va
+00:20:32.480 escribiendo el código. Exactamente. Pero no todo el script de golpe, sino poquito a poco. ¿Por qué?
+00:20:37.559 Porque entonces también la respuesta que obtiene el sistema es de la ejecución de códigos. No obtiene y no puede no me
+00:20:43.280 esquive el script entero porque no sabe lo que se va a ir encontrando a lo largo del es como funciona una CPU, por eso se
+00:20:48.880 llama KPU, ¿eh? ¿Cómo funciona el sistema operativo? Va hicier instrucción. Me pregunta aquí al final si yo entiendo
+00:20:54.159 correctamente, el LM está escribiendo código y después está verificando output de este código. Sí,
+00:20:59.360 por eso tú has probado cloud code o alguien. Sí, sí, sí. Tú a ves
+00:21:04.559 preguntando, por favor, escríbeme un test que después pasa. Sí. Y a veces que el está generando está escribiendo un test de perdón de [ __ ]
+00:21:11.240 y después está corriendo y mira, todo pasa, todo perfecto. ¿Cómo tú puedes eliminar eh esto aquí? Porque cuando tú
+00:21:17.279 le pones que me haga un test, te hace te escribe un código entero. Es lo que te digo, te escriben ficheros enteros de scripts enteros. Nosotros no hacemos
+00:21:23.919 eso. No, a veces es un test muy sencillo de tres líneas y todo y que mira que ha un over optimized para cas de uso que solo
+00:21:30.080 pasa. Sí. Nosotros cómo lo hacemos es que primero controlamos el entorno, que eso
+00:21:35.480 es lo que yo creo que es que todo el mundo se centra en la y realmente la innovación está casi en el otro lado,
+00:21:40.640 que es en el en el entorno. ¿Qué significa el entorno? ¿Qué entorno? entorno es el ordenador en el que se ejecuta. Es, o sea, nosotros podemos
+00:21:47.159 ofrecer no solo esa trazabilidad, sino además el gobierno de los datos y demás, porque nos hemos centrado en ese entorno
+00:21:53.840 de ejecución, ese ordenador que la IA utiliza para ejecutar las tareas, ¿qué permisos tiene? ¿A qué puede acceder?
+00:21:58.919 ¿Cómo le cargo las variables para que la IA no pueda acceder a ellas, pero pueda utilizarlas? los credenciales porque
+00:22:04.360 seguridad, eh, pero esto hay muchos frameworks que no y Asure eh, y Microsoft se centra en dar
+00:22:11.480 esas herramientas de enterprise de data governance, de trazabilidad de datos. Sí, pero ellos construyen a, por
+00:22:17.400 ejemplo, cuando haces Power Automate, tú predefines un workflow a y metes luego la IA de por medio, que es lo mismo que
+00:22:23.039 ha hecho que ha hecho Open AI. O sea, yo si queréis centrar la conversación en la parte técnica, por mí genial, eh, eh, yo
+00:22:28.400 solo y, o sea, es un paradigma. No puedes decir que tú haces algo totalmente diferente y no explicarlo
+00:22:33.880 para que lo entendamos estas dos personas que están aquí sentado. Pero yo creo yo creo que se entiende. Si no se entiende, ¿qué es lo que no se
+00:22:39.400 entiende? Vale. Yo no entiendo qué hacéis diferente. O sea, tú dices, "Escribemos un código,
+00:22:45.360 ¿vale?" Sí. Eh, para cada problema que se va encontrando indeterminísticamente la IA, ¿no? Pues tú a priori eh, de inicio tú
+00:22:53.480 no sabes que imagínate para para contabilizar algo, pues tienes que ir a buscar una escritura.
+00:22:58.520 ¿Conoces RPA? Sí, conozco RP, pero un momento, tú para contabilizar algo no sabes que tienes que ir a buscar una
+00:23:04.240 escritura y para buscar esta escritura tienes que buscar un apoderado. Y eso tú no lo sabes de inicio. Tú estás haciendo
+00:23:10.760 una herramienta de de cierre contable y estás contando con el ABC de problemas de cierre contable, pero esto estamos
+00:23:16.600 hablando ya de longtails, de casuísticas. Sí. Entonces, tú estás diciendo que tienes un código que escribe, o sea, que tienes
+00:23:23.200 una, no, no sé cómo llamarle, una gente eh, que escribe un código para ir a
+00:23:28.279 buscar el apoderado y que determinas de forma unívoca que esto está bien,
+00:23:34.760 si no que la instrucción está bien ejecutada y seguida, o sea, es decir, que has seguido bien las instrucciones y
+00:23:40.480 el knohow. Eso es lo que yo te digo. Si las instrucciones están mal, yo te voy a decir, "Está bien las instrucciones,
+00:23:45.600 pero si tú has definido, si está mal definido lo que quieres que haga." Pero es que el problema es que está siempre mal definido porque el lenguaje
+00:23:51.120 natural es ambiguo. Pero es que esa es la clave eh eh de la plataforma. La plataforma lo que hace
+00:23:56.400 los datos están los datos están mal, el lenguaje natural y la pregunta está mal, ¿vale? Los conceptos y las entidades
+00:24:03.039 están explicadas de múltiples formas que son contradictorias entre sí. Ese es el problema del dominio de Enterprise, no
+00:24:09.000 lo has dicho antes. Y eso sin entrar en el acceso y los permisos a los datos, que efectivamente también son imposibles. Y luego hay más todavía que
+00:24:15.480 es cuando tienes 100, ¿qué haces para gestionarlos todos? Esto también me interesa, eh, cómo escalan 100 agentes.
+00:24:20.880 O sea, nosotros, o sea, esto que está pasando es muy común, o sea, si tú vienes con un
+00:24:26.880 cambio paradigma, es normal el challenge. Y no es un cambio paradigma, es otra opción que que a lo mejor a largo plazo es distinta. iba, o sea, lo
+00:24:33.880 has explicado bien, pero hay un punto que es distinto. Yo tengo predefinido un programa en
+00:24:40.240 lenguaje natural. En vez de hacerlo un código, lo tengo hecho en lenguaje natural, ¿vale? Y ese programa tiene instrucciones, tiene punteros a datos,
+00:24:46.320 ¿vale? En lenguaje natural, donde yo con mi plataforma he intentado reducir la ambigüedad en todo lo que puedo. Si
+00:24:52.679 tienes que buscar en una tabla, te digo dónde tienes que enfocarte. O sea, yo ya he ayudado mi sistema a definir un
+00:24:58.640 programa lenguaje natural. tiene su sección de instrucciones, su su sección de más que es la más ambigua, de knohow,
+00:25:04.919 de conocimiento, de detalles que le pueden hacer que funcione mejor, que puede utilizar y qué no. Punterse a los
+00:25:10.000 datos. Vale, tengo eso escrito y yo tengo una tecnología que se llama Capeu, ¿vale? Mi nuestra tecnología. Cojo el
+00:25:16.279 programa Lenguaje Natural, que es la tarea de de ¿Cómo está escrita esta tarea?
+00:25:22.320 El lenguaje natural. Pero tienes un ejemplo. Ponme un ejemplo. Sí, si quieres hacemos una. Venga, vamos
+00:25:27.440 a hacer una demo. Vamos a hacer una demo porque si no nos perdemos que es el problema de de este mundo, o
+00:25:34.159 sea, todo el mundo está haciendo esto que tú dices que estás haciendo, ¿no? La gente lo que está haciendo es [ __ ] ahí están haciendo dos cosas y me
+00:25:40.960 puedo equivocar, ¿vale? Pero lo que nosotros tendríamos, porque también lo hemos hecho, la primera es
+00:25:47.840 estilo N8N, estilo lo que acaba de lanzar Open AI, que es tengo cosas predefinidas que son workflows agénticos
+00:25:54.000 y meto a la IA en el medio en algunos puntos donde van a verse los problemas de aunque puedan reducir el nivel de
+00:26:01.520 alucinaciones, etcétera, para tareas complejas se vuelve muy rígido. Entonces, no es capaz de no solo
+00:26:06.600 descarlos y luego que no ni Dios monta eso para los casos de uso realmente que se tienen que hacer y que y que son
+00:26:11.760 complejos. Ya. Y la segunda parte es utilizar eh también frameworks de agentes. Puedes
+00:26:18.080 tener algunos de LCH, o sea, puedes tener Kirai, puedes tener otros en ese estilo donde con lenguaje natural tú
+00:26:24.000 creas agentes a los cuales les das herramientas o servidores MCPS o incluso registros de servidores MCPS que son
+00:26:30.120 como herramientas en la nube. incluso un code interpreter también eh con
+00:26:35.240 soluciones que hay de mercado y con eso y prompt engineering tú te montas un agente o múltiples agentes que trabajan
+00:26:41.240 como si fueran multiagénticos. Entonces ahí es lo que dice Ilia, ¿no? O se separas
+00:26:46.399 el problema en en pequeños problemas que son fáciles de validar, cada uno por separado y luego te creas
+00:26:52.880 pues sistemas más complejos que orquestran entre todos estos. El el problema es que eso asume que has
+00:26:58.960 resuelto el problema para uno y cuando lo haces en n y entonces hay el problema que el problema que tiene ese sistema
+00:27:05.279 que tiene bastantes, pero uno de ellos es que si te falla es muy difícil encontrar dónde está el fallo y los la
+00:27:11.720 IA de por sí es supercleja porque es yo lo es un sistema dinámico, o sea, tiene 1000 piezas, entonces
+00:27:18.480 todo es un sistema dinámico. estás aumentando, estás aumentando a complejidad muchísimo de de
+00:27:26.240 si tienes un fallo se propaga y luego encontrar dónde has tenido el fallo es muy complejo, ¿eh? Y luego resuelves ese
+00:27:31.960 fallo que te puede luego mejorar lo otro. Eso también pasa con el software tradicional, ¿eh? Sí, pero la diferencia es que aquí es un
+00:27:39.080 lo que lo que pasa mucho con la es lo tienes, lo tienes, crees que lo tienes, lo lanzas a producción y vuelves y vuelves a a tirarlo atrás. Lo lanzas a
+00:27:45.519 producción y vuelves a tirarlo atrás. Eso es lo que está pasando, que con el software tradicional no pasa tanto. Lo tienes, vas a producción, lo
+00:27:51.559 puedes tirar atrás, pero es mucho más cerrado lo que puedes llevar a cabo y luego que mejor muchas cosas, ¿eh? En el
+00:27:59.159 ámbito. Os si queréis os hago la demo. Sí, sí, sí, porque tengo un millón de preguntas, pero sí, pues hazlas,
+00:28:04.279 ¿no? Quiero quiero quiero ver. Vamos a hacer un un caso de uso.
+00:28:09.559 A ver, dale grabar a la pantalla. Sí, sí. Vo voy voy antes a abrir eh que luego lo pondremos. Voy a abrir
+00:28:15.519 esto. Y mira, tú decías que no hacías workflow. No, no, no es que voy a decirte eso.
+00:28:21.279 Siempre que vamos con estos workflows. Me lo voy a poner. Estoy grabando la
+00:28:26.600 pantalla. Vale, vale, pero no se ve toda la pantalla, creo. Vale, espérate. Discar y eh
+00:28:33.880 display. Vamos a hacer un caso de uso, ¿vale? caso de uso de gestión de requerimientos
+00:28:39.919 legales. Si yo quiero hacer este caso de uso hoy, esto es lo que tendría que
+00:28:44.960 hacer. Claro, pero es que realmente, o sea, la el cliente quiere un workflow porque no
+00:28:52.679 quiere que para hacer un caso de de he dicho de requerimientos de Sí, supinas se llama en inglés. Supinas. Eh, un banco recibe una
+00:28:59.559 denuncia de alguien, ¿no? Sí. Y recibe un requerimiento legal de, oye, dame toda la información de David que tengas. Vale. Y hay ahí un proceso
+00:29:06.559 determinístico que hay que seguir en este determinístico a nivel de qué cosas se
+00:29:11.880 tienen. Se intenta hacer determinístico, pero las Pero a ver, hoy es determinístico, no hay No,
+00:29:17.120 no, no es determinístico. A ti te vienen ficheros como estos, que es un es un MOC
+00:29:22.480 data, ¿vale? Es una demo, eh, lo tengo que decir públicamente. Eh, entonces eh no no está grabando. Ahora
+00:29:30.120 sí te vienen te vienen, empiezo de nuevo, te vienen ficheros como estos. Vale, como los que estamos viendo en pantalla.
+00:29:36.240 Y este fichero es un ejemplo, pero te pueden venir superdtintos o fotos o de 1
+00:29:41.440 estilos. Entonces, quier hacer un proceso determinista, pero es que los requerimientos también te dicen qué te están pidiendo, entonces
+00:29:47.440 te van a pedir cosas distintas cada vez. Son pasos determinísticos, pero qué está pasando en caso cada paso.
+00:29:52.799 Sí, o sea, el por eso digo, no es el determino, o sea, no todo por eso tienes
+00:29:58.120 humanos, porque le va a venir esto y va a tener que pedir otra cosa más. que los humanos también necesitan determinismo. O sea, tú cuentas un proceso.
+00:30:03.640 Exacto. Y el proceso es determinista. Los pasos es lo que dice Elía, los pasos a seguir cuando recibes una un subpina
+00:30:10.120 de estos son deterministas, están definidos lo que tienes que hacer, pero cada documento puede ser diferente.
+00:30:16.279 Cada paso es distinto. Exactamente. Vale, pues ahí vamos a estamos alineándonos. Venga. Entonces, tú tienes
+00:30:22.080 este este workflow que no que no que no hacéis workflow, pero es un work. No, esto no lo hemos hecho nosotros. Esto es un ejemplo para que veáis de
+00:30:28.120 cómo se ve, cómo sería intentar llevarlo a cabo, que no está resuelto. Vale. Eh, puedes ampliarlo porque no veo nada.
+00:30:35.519 Pues recibe la supoena. O sea, es que no quiero entrar en muchos detalles, ¿vale?
+00:30:41.480 Es vas muy tienes que leer el fichero, buscar información, extraer, consultar
+00:30:46.760 la base de datos, ver si existe el cliente, si existe el cliente, buscar toda la información del cliente y luego
+00:30:52.039 tendrías que podrías poner la IA de por medio en alguno de esos, en algunos de esos y en el RP antiguo no podrías,
+00:30:57.760 ¿vale? Y el resultado de todo esto, ¿qué es? Voy. No, no. Y el resultado de todo eso es muy buena. Es un informe que te dice
+00:31:00.000 No text
+00:31:04.039 si has encontrado a al cliente o no y qué información has encontrado el cliente. Ni más ni menos. Es un
+00:31:10.519 documento. Sí, son datos. Vale, solo eso. O sea, pues no, esto no solo eso. Es pequeño, digamos. Es como
+00:31:16.000 es Sí, o sea, no voy a si ahora enseño otra cas también más complejo, pero es pequeño. Todo eso es para para saber si
+00:31:21.880 encuentras al cliente y no y encontrarlo y recabar la información y encontrar si tiene otras posibles cuentas también con otro
+00:31:28.360 nombre, con algún tipo de relación, ¿vale? Dentro del banco. ¿Vale? Entonces, si tú quisieras automatizar esto, pues esa esa
+00:31:35.679 es la dirección. Nosotros lo que hacemos es y lo que estamos enseñando ahora es Maya Studio que te permite hacer
+00:31:41.799 unboarding al trabajador digital utilizando lenguaje natural, ¿vale? Entonces, en vez de tener que hacer
+00:31:47.440 promptinin o definirlo porque la gente no sabe, esto va pensado para el tío que hace las subpoenas o el jefe de los que
+00:31:52.760 hacen las subpoenas, ¿vale? Pero el que conoce ese proceso de paso uno, paso dos, paso tres y para hacer onboarding
+00:31:58.919 lo explicas como si fuera un nuevo junior que acaba de entrar a la empresa. El lenguaje es supernatural. Entonces,
+00:32:05.799 voy a poner eh de nombre, la vamos a llamar indic y le vamos a poner eh su
+00:32:10.960 poena y lo voy a poner en aquí. Mira, ¿esto qué es? La descripción de lo que la descripción de lo que tenemos que
+00:32:17.120 hacer. Tu tarea es leer la subpoena, el PDF y de la base de datos de los clientes buscar por la información que
+00:32:23.360 se pide, porque es una investigación, tienes que buscar otras posibles cuentas que existan y eh encontrar la y al final
+00:32:31.840 enviar un correo electrónico con toda la información que se requiere. ¿Vale? Este este caso no lo he hecho muy complejo,
+00:32:37.360 luego os enseñaré otros mucho más complejos. Ya he hecho, pero esto no es como un cierre contable, un cierre contable, ¿no? Ahora os enseño otro que es como
+00:32:43.120 cierre. Me gustaría verlo. Voy a buscarte, pero eh entonces
+00:32:49.200 clicamos on board. Esto no te permite hacer la tarea. Estamos de acuerdo. Al menos yo no podría hacer la tarea si alguien me lo explica así. Yo no sería
+00:32:55.880 capaz de de llevarla a cabo. Cuando tú clicas on boarding, lo que hacemos por detrás es saltas a esto que tenemos
+00:33:02.159 aquí. ¿Qué es esto? En la parte izquierda nosotros tenemos un chat eh que te permite hacer de processer, es
+00:33:08.559 decir, te permite traducir el lenguaje de negocio a procesos. Y en la parte
+00:33:13.880 derecha tenemos entre comillas el cerebro de este trabajador digital. Tenemos las instrucciones que va a seguir, las variables de entrada en este
+00:33:21.639 caso que va a utilizar, los datos de entrada porque no es un chatbot, recibe datos, se ejecuta y te da el resultado,
+00:33:28.679 el output. Tenemos la sección de knohow, saber hacer, que es donde se acumula el
+00:33:33.960 saber hacer o donde lo alineas a esos conceptos. ¿Dónde sale este enojado? Puedes subirs.
+00:33:39.240 ¿Qué es un SOP? Estándar process son documentos de procesos que los que las enterprise
+00:33:44.279 tienen. O si tú contratas a David en Factorial y le quieres explicar cómo
+00:33:50.159 hacer una tarea, Factorial no tiene ningún documento para que David sepa cómo hacer una tarea. Tiene 50 notions escrito en diferentes
+00:33:57.320 épocas que dicen cosas diferentes sobre cómo hacer esto. Pues para eso entonces el trabajador digital lo que hará será,
+00:34:03.240 o sea, el worker builder, que es la parte izquierda, lo que hará será buscarte por contradicciones, es decir,
+00:34:10.560 eh la parte izquierda te busca contradicciones, te mira por problemas que puedan existir en las instrucciones
+00:34:16.960 que has subido. Te optimiza porque la gente no sabe
+00:34:22.599 explicar el proceso, solo sabe decirlo. Entonces eso es lo que hemos hecho para alrededor de nuestra tecnología. antes
+00:34:28.520 de que tú le des al botón de RAN, que es toda una plataforma para ayudar a traducir el lenguaje de negocio con
+00:34:33.560 todas sus complejidades, a un proceso en lenguaje natural, porque no van a entender flechas. Solo para aclarar si
+00:34:39.599 yo tengo esto claro. Ah, tenemos estos datos de lenguaje natural, después tenemos algunos documentos
+00:34:46.320 de igual y tenemos este agente ah level agent que está preparando instrucciones,
+00:34:52.119 extrayendo variables, extrayendo metadata y preparando más paso a paso un workflow en lenguaje enoral para otro
+00:34:58.760 agente que vamos a correr. B para la KU, o sea, para el trabajador digital que va a hacer la tarea. Exactamente, eso es lo que tenemos
+00:35:04.400 hecho. Luego tenemos la sección de integraciones y tools. Nosotros contamos con unas 350
+00:35:09.720 crece muy rápido. O sea, a día de hoy hacer integraciones no es tan costoso, pero tan costoso porque utilizáis el MCP
+00:35:17.560 que está publicando estas herramientas. Integración MCP y dos porque a día de hoy si le pasas la documentación adecuada y cómo la quieres hacer,
+00:35:23.400 cualquier modelo te lo va a programar. Ya. Vale. Y luego porque además nuestro sistema
+00:35:28.440 como es un ordenador puede interactuar con APIs e con navegadores
+00:35:33.680 of the box. tú se lo dices en en el chat y ahora lo veremos. Un ejemplo, eh, y es capaz de configurártelo todas las
+00:35:40.200 instrucciones y el kow que haga falta. Y luego ¿Quién lo está quién es el usuario de esto? Un business user. Eh, hay dos,
+00:35:46.839 ojo porque un business user programar integraciones y tal, cero cero. No saben, no vas a ver un
+00:35:52.079 ejemplo ahora en tiempo real, se autoconfiguran, ¿vale? Tienes por un lado el Business Uer y por otro el process Engineer, gente que
+00:35:58.359 viene de hacer RPA, que que viene a hacer automatizaciones y que ya tienen las piezas en su cabeza de cómo
+00:36:04.319 funciona. O sea, vosotros vais al cliente que ya tiene RPA, tiene sentido. Por ejemplo, sí, sí, sí, es un
+00:36:10.960 Es fácil de explicar. Sí, ellos lo entienden. Ellos entienden el valor de esta primera porque entienden que es como que la construye
+00:36:16.920 en tiempo real un RPA para resolver dentro de un caso de uso una transacción. Y puedes poner ejemplos de
+00:36:22.319 RPAs que están funcionando en el mercado, Legacy, o sea, UIPH, UIP, eh Power Automate,
+00:36:29.160 eh Blue Prisim, son ejemplos. Ahora, ahora hay RPA 2.0, N8N, Zapier.
+00:36:36.880 Claro, todos estos están haciendo también lo mismo, agentes, intentan hacer agentes. Sí. UIP no tiene
+00:36:43.280 un framework de agentes, ¿no? O sea, tienen un framework que hacen lo que hemos estado, lo que he estado diciendo, que el problema en el
+00:36:49.079 que te encuentras es la falta de verificabilidad que tienes de los resultados, o sea, que ese es uno de los
+00:36:55.079 problemas core. Vale, vamos a dar la verifica bien vuestra. Entonces, todavía no hemos ejecutado RAM, ¿vale? O sea, si estoy puedes hacer
+00:37:01.280 deploy, hay sistema de gestión de versiones. Ahora os cuento más, ¿vale? Entonces, lo primero que nos pregunta,
+00:37:07.160 que me quedo sin voz, es eh bienvenido, tal, tal, e, ¿qué tipo
+00:37:12.240 de databes utilizas? Entonces, para esta demo voy a pasarle un here is your
+00:37:18.160 database. Voy a pasarle una base de datos que Pero, ¿qué quieres una base de datos? Yo tengo un spreadshe en este caso que es donde lo tengo guardado.
+00:37:23.680 Eso lo entiende el business eh business person. Podemos hacer una prueba, pero le puedo
+00:37:29.160 decir, "No entiendo lo que me estás diciendo." Y puedes utilizar inglés o español, obviamente, porque es un modelo, o sea, eso ya es está resuelto.
+00:37:36.079 Y te dice, eh, que es una base de datos. Sí, si hace Si se lo preguntas, sí. Y si le preguntas en acerca de estudio
+00:37:42.599 también te orienta, o sea, esto es esta es vale, esto no solo sabe cómo hacer el proceso,
+00:37:48.079 sino que entiende la plataforma en la que se encuentra. Si ahora vemos lo que ha pasado, las instrucciones han cambiado. Ahora la variable entrada ya
+00:37:54.680 ha entendido que es un Google Sheet de forma autónoma. Y aquí se le has pasado un Google Sheet como base de datos.
+00:38:00.200 Le le he pasado un Google Sheet abierto, un Excel muy muy grande de cientos de miles de líneas como base de datos en este en este sitio para que encuentre,
+00:38:06.200 pero no le he explicado lo que se va a encontrar, no le he dicho cómo cómo está conectado. Voy a poner un ejemplo, voy a
+00:38:12.160 hacer la demo y luego os enseño un ejemplo también de cómo se conecta una integración como supis, por ejemplo, que es otra base de datos.
+00:38:19.040 me pide el correo, le voy a dar mi correo y eh qué está pasando ahora que no está
+00:38:26.200 leendo este Google Sheet, al final es solo rellenando todas las variables. Exactamente. Está preparando la la información. Ah, y está entendiendo el
+00:38:33.319 concepto. Entonces, lo que he hecho también aquí en la base de datos es le he cambiado, lo he puesto un poco complicado, le he puesto indig a una
+00:38:40.040 columna para que es donde tiene que buscar la información. Ahí es donde está la clave de todo, que es buscar la
+00:38:45.839 cuenta. Y ahora, eh, h next step.
+00:38:51.040 Podemos seguir, pero vamos a hacer un RAM para que no se alargue. Entonces, lo primero que voy a hacer va a ser copiar
+00:38:56.560 y asegurarnos de que tenemos la base. Lo segundo que voy a hacer va a ser eh acá
+00:39:02.000 no me hace falta. Recip email, email font number. Fijaros que aquí tengo variables que no tengo.
+00:39:08.280 ¿Qué significa que tienes variables que no tienes? Yo tengo, me está pidiendo datos que no tengo. Yo no tengo el correo electrónico del usuario, la
+00:39:14.079 supuena, no tengo esa información. I don't have the information o email, phone number.
+00:39:21.640 Ah, pero si quitas esas variables de instrucciones, va a tener que leer la supoena, extraer
+00:39:26.720 la información y salvar base de datos. Claro, porque tienes estos variables ahora en las instrucciones. Por eso si tú quitas en teoría
+00:39:33.560 lo va a cambiar, me va a cambiar todas las instrucciones. Esa es la clave. eh va a entender, vale, si estos datos no
+00:39:38.720 los utilizo, entonces mi proceso cambia. Sí, yo no voy a utilizar estos datos. Este este agente, volvemos al principio,
+00:39:44.359 ¿qué hace? Te configura un trabajador digital, te configura un Word natural, busca busca estos datos
+00:39:50.240 en una base de, o sea, lee el documento, lee el documento, extrae la información, extrae lo que se tiene, mira a ver lo
+00:39:56.400 que se tiene que extraer, se va a la base de datos, busca si existe esa persona, busca si esa persona tiene
+00:40:01.599 otras posibles cuentas dentro del banco con otras eh nombres, con otra información ah que pueda tener conexión
+00:40:08.680 en común, la recopila y en este caso me envía un correo. Te puedo enseñar otro que hace un trade finance, que se lee un
+00:40:14.560 montonazo de documentos, se va a consultar tres bases de datos, te hace la conciliación,
+00:40:19.920 te te elabora un documento, te lo sube a una base de datos y, o sea, la complejidad la puedes extender. Intenta
+00:40:25.319 hacerlo sencillo para que se entienda la plataforma. Pero también quiero aclarar una cosa. Tú estás diciendo que mira en
+00:40:30.640 8n muy rígido, muy complejo hacer esto, pero pero al final tú has está haciendo
+00:40:36.079 más o menos lo mismo, pero en el texto lo voy a definir el lenguaje natural, pero eh fíjate que yo no estoy diciendo
+00:40:42.480 cómo tiene que leer y extraer la información. Claro.
+00:40:47.599 Structurado, pues no no no conectas estos piezas. Vale, vale, vale, vale. Entonces, yo simplemente no estoy difiriendo un flujo de código, esto
+00:40:53.400 lenguaje natural de momento y va a ser así hasta que le dé al botón de run, ¿vale? Entonces, I don't have the information about the email, the phone
+00:40:59.520 number. Pero y el input variable son las que tú has definido aquí.
+00:41:04.599 Yo no lo definido, lo ha definido la Vale. O sea, a partir de la de la del inicio de la instrucción
+00:41:09.839 del inicio de la instrucción, él ha encontrado variables, pues ha encontrado las variables que le estás pidiendo, ¿no? Y te las ha marcado. Estas son las
+00:41:16.040 variables que estamos buscando. Sí.
+00:41:21.839 Las input variables son los datos de entrada. Insisto que igualmente esta Yui que estáis viendo la semana que viene en
+00:41:27.280 dos semanas va a cambiar, eh, vamos a hacerlo mucho más sencillo, pero el concepto es igual, o sea, que se entiende, ¿vale? No, no está muy bien.
+00:41:33.160 Las variables de entrada son qué datos va a utilizar el trabajador digital para llevar a cabo la tarea, ni más ni menos,
+00:41:39.319 qué datos yo le voy a dar que pueden venir porque el cliente se lo dé, porque luego cuando lo tenga la API serán
+00:41:44.359 parámetros de entrada o porque son los que va a ir a buscar a un eh Drive, Google Drive, ¿qué datos va a utilizar
+00:41:50.880 para hacer la tarea? Esos son las variables de entrada. y le digo, pues mira, y lo que le estoy diciendo es I
+00:41:55.920 don't have information about the email for number and email recipen. I don't need that
+00:42:01.680 input those input variables. Those input variables.
+00:42:06.720 Pero, ¿y esto, ¿por qué te los pregunta estos inputs? ¿De dónde salen estos de aquí? Salen de la descripción
+00:42:12.599 inicial que hemos hecho de la información que necesita, porque tiene que buscar la información del cliente. Fijaros que me ha quitado las variables
+00:42:17.680 de entrada. Ahora ya si le doy aquí pues ya no las tengo. Y ahora puedo copiarla. podría deducir que el mismo que no tiene
+00:42:25.160 de estos datos. Sí. Eh eh y pero depende de la descripción que yo le que yo le haga. Ah, en la descripción yo no ponía que no
+00:42:31.400 tenía esos datos. Entonces él lo asume. Y lo que nosotros eso es lo que en el modelo tradicional, bueno, tradicional no tiene nada de
+00:42:37.680 tradicional, hace un forward deploy engineer típicamente, ¿no? Hace un process engineer, te diría. El process engineer se sienta con el
+00:42:44.319 business user y le empieza a hacer preguntas y es el que le va configurando el proceso o le defines el flujo de RPA.
+00:42:49.520 V. Pero, ¿qué vas a recibir de datos nosotros? Eh, el modelo al final en la parte
+00:42:55.160 izquierda lo que va a hacer es preguntarte, te va a pedir información, te va tras un RAM, puede acceder al run y decirte que
+00:43:01.440 ha funcionado, que no ha ido bien. O sea, el worker builder, que lo que llevamos a la izquierda, este Prosis Engineer, no solo te ayuda a
+00:43:08.079 configurarlo, sino a optimizarlo y a si no sabes cómo utilizar estudio, preguntarle. O sea, es lo que hemos nos
+00:43:14.800 hemos enfocado en la plataforma en ese sentido, que se pueda utilizar con lenguaje natural. Ahora es escrito, meter voz no cuesta nada y esto va a
+00:43:21.720 seguir obviamente iterando producto eh tiene que seguir mejorando un montón esto. Vale, entonces vamos a hacer una
+00:43:27.960 prueba, eh menos hablar y más prueba. Entonces
+00:43:35.160 ha ganado supone a found te van a escribir un montón de potenciales clientes, lo sabes, ¿no?
+00:43:41.760 Poniendo aquí tu email. Sí. Bueno, eh, I don't have the account number.
+00:43:50.960 Number needs to be extracted, aunque lo queamos, ¿vale? Extracted from the
+00:43:57.559 supina. Vale, I want to send
+00:44:02.720 the final sold as an email to David
+00:44:08.480 an email, please. Entonces, lo que estoy haciendo ahora mismo me está pidiendo el account number y le digo que no lo tengo y que no lo tengo. Yo no tengo eso. Eso
+00:44:15.760 está en la supuena y se tiene que apañar. Entonces, con eso va a ir cambiándome de nuevo la Pero esto también lo podría derivar, ¿no?
+00:44:21.400 Lo como poder derivarlo lo puede, pero si lo dejo la ventana a que me derive las cosas es donde empezamos a tener la
+00:44:28.160 variabilidad y el sistema, ¿no? Sí, sí, la variabilidad está en todos lados. Pero, ¿quién responde esto?
+00:44:33.800 O sea, ¿quién es es una persona de MA la que está respondiendo eso o es el cliente?
+00:44:39.000 Es el cliente. O sea, lo que va a hacer el lo que hace el sistema este te hace preguntas. Ah, y te va ayudando a
+00:44:45.599 entenderlo. Yo lo que pasa es que ahora para ir más rápido no estoy siguiendo las preguntas que me está haciendo. Voy al grano para para lo que estamos
+00:44:51.599 haciendo. Pero una persona que no sabe nada se mete aquí, lee el chat, va respondiendo lo que el chat le va diciendo y se va autoconfigurando. Esa
+00:44:58.240 es la la clave. No hemos hecho el RAM todavía. Eh, sí, sí, sí. Pero hablando de errores humanos, porque al final yo estoy
+00:45:04.240 leyendo chat y casi todo que no está preguntando cosas. está mi haido ha quitado, pero al final tú quitas ahora
+00:45:11.280 variables, tú estás ajustando cosas porque tú sabes limitaciones del sistema pero si soy usuario nuevo para mí, mira,
+00:45:18.760 account number tiene sentido, todo esto tiene sentido, va adelante. Es como,
+00:45:24.160 ¿cuál es este feedback loop al final de de todos cosas? Porque me parece tenemos que correr, ver resultados
+00:45:31.040 y cambiar instrucciones. Lo primero que haces es configurarlo y leer que las instrucciones en lenguaje natural tienen sentido y están correctas. Eso es lo primero que tú
+00:45:37.400 haces y tú leer como una persona normal si lo que está lo que está puesto tiene sentido. Si a mí me pide un account
+00:45:43.240 number, es que lo estamos viendo, lo estamos viendo, me pide un account number y yo digo, "No tengo account number, pues le puedo la gente le dice,
+00:45:50.920 oye, que yo no tengo account number." El modelo este, por eso os digo que va a cambiar en la siguiente versión que
+00:45:56.400 venimos ahora, mejora muchísimo, porque lo que hemos nosotros hemos aprendido mucho a lo largo de estos meses de cómo la gente utilizaba el chat. Al inicio el
+00:46:02.760 chat no te decía nada de estudio, ahora vemos que la gente lo utiliza para preguntarle también sobre la plataforma. Entonces, lo fuimos mejorando.
+00:46:10.839 La el punto principal de la plataforma es permitir que la gente con lenguaje natural pueda configurar un trabajador
+00:46:15.960 digital y no tienen ni idea de convertirlos en procesos, solo saben hablar de negocio. Entonces, que alguien de negocio, hablando negocio, se
+00:46:22.480 convierta en un proceso, como estás viendo, con esos pasos alto nivel deterministas, tienes que leer esto,
+00:46:27.760 luego irte a una base de datos, luego buscar, luego hacer tal y luego el cómo es donde se el knoow se va a ir dando
+00:46:33.880 información, pero además donde la va a ir encontrando ese proceso en tiempo real para resolver el problema. ¿Vale?
+00:46:40.040 Entonces, ahora lo es tan fácil como eh [ __ ] la la base de datos, ponerle no lo
+00:46:47.359 tenemos desplegado, estamos testeando el correo y eh le voy a subir aquí la el
+00:46:52.960 escáner este, ¿vale? En este caso para como motor, o sea, como herramienta dentro de la KPU, nosotros podemos
+00:46:59.160 utilizar a 41 o podemos poner otro. Pongo 41 porque va muy rápido. Más 5 el usuario de negocio no tiene idea.
+00:47:05.720 Lo sé, lo sé, pero le puede preguntar también cuál es el que tiene que utilizar y se lo dice. Ya, pero ya ya si hace falta.
+00:47:11.680 tiene chat GPT para preguntarle, aprender a programar y aprender a construir a la familia si quieres. Es ese feedback. Sé que por experiencia
+00:47:19.720 eh ponerle que escoja modelo no es la solución idónea. Para nosotros ahora en la fase en la que estamos nos vale, nos
+00:47:25.920 ayuda a resolver casos de uso. Y lo que estáis viendo pantalla es eh la innovación un poco de MA. Ahora
+00:47:32.839 lo estáis viendo. Esto se llama Chain of Work o cadena de trabajo. Esto este concepto es vuestro.
+00:47:37.960 Sí. Vale, es la cadena de trabajo. Eh, ¿por qué? Porque lo que estáis viendo son pasos de
+00:47:43.200 código, es decir, atómicos de código, pero como el business user no entiende el código, es con una capa de
+00:47:49.400 interpretabilidad encima que te dice qué está pasando en cada paso, cuál es el resultado intermedio de cada paso, qué
+00:47:55.200 knohow se aplica, qué herramientas se utiliza y con qué datos se va utilizando. Eso para cada uno de los
+00:48:00.839 pasos. Entonces, yo sé que en el primer paso ha identificado a partir del fichero que teníamos el account number,
+00:48:06.680 que estaba en pequeño dentro del fichero que es el 89 5260. En el segundo paso se ha ido a ver la
+00:48:12.760 base de datos de clientes. Está buscando, está preparando el sistema para acceder a la base de datos y está
+00:48:19.319 está resolviendo el el problema. Y si no encuentra una solución que funciona porque la base de dator no está
+00:48:24.520 disponible por lo que sea o la API se equivoca con el parámetro, no pasa nada. es capaz de ver que no está funcionando
+00:48:30.680 una dirección e irse en otra dirección. Pregunta tonta, ¿por qué esto es no
+00:48:36.200 howow? Porque honestamente un clot code o algún otro agente hace lo mismo con tool calls y ahora yo veo un chain de
+00:48:42.680 tool calls con resultados y con un contexto que estáando aquí porque tienes que tener todas las por
+00:48:50.040 primero porque no lo hace primero tienes que tener todas las todas las tools definidas para poder hacer esta tarea y
+00:48:55.359 en este caso no tienes todas las tools definidas por eso. Pero imaginamos que esta gente está generando estos tools on the fly,
+00:49:00.559 pero concepto es lo mismo. Es como yo estoy No, pero no es que no genera tools on the fly. Esto no hace function, no hace llamada a la API con un function call.
+00:49:07.079 Yo entiendo. Es como es como detalle técnico, pero a nivel de lógica es como un paso por paso. Yo estoy
+00:49:13.480 te lo voy a simplificar más. Vale. Tú no puedes crear lógica con las con function calls. Tú no puedes hacer que
+00:49:21.200 utilice tres tools en un bucle donde el del summary extraiga la información. me
+00:49:27.599 lo me lo donde de lo que busca la base, o sea, no tú no puedes crear lógica con
+00:49:32.960 los modelos, no están creando a día de hoy lógica utilizando las herramientas en un solo paso. Tú piensas que aquí lo
+00:49:39.319 que está haciendo es escribir código atómico donde además crea lógica para utilizarlo. Por eso es como sí entiendo que tú estás
+00:49:45.839 haciendo, pero al final es como agente el LM está creando una herramienta que está agrupando otras herramientas en el
+00:49:52.200 mismo paso, ¿no? crea una pieza de código que puede estar hecha en Python o en Go, o sea, o
+00:49:57.440 en JavaScript. Crea piezas de código que en el entorno en el que tiene, que lo conoce, se ejecuta, que es lo que está
+00:50:04.240 pasando ahora a ahora mismo. Y aquí tengo el resultado y ahora pues lo tendré en el correo, pero no voy a abrir
+00:50:09.400 el correo, pero hombre, sería sería bueno, ¿eh? Voy, voy, pongo pausa, lo abro y lo
+00:50:15.119 pona, pon pausa, pero queremos ver el correo. Os lo enseño, ¿eh?
+00:50:20.280 Entonces, lo que está haciendo es ha tardado un minuto 39. Insisto que esta tarea es sencilla, es más para que entendáis el, o sea, para que se
+00:50:26.480 entienda un poco la dirección y os enseño si queréis ahora otra más compleja. La diferencia de si yo hubiera resuelto
+00:50:32.119 esto con un modelo, lo que hubiera hecho ha sido tendría algunas herramientas a lo mejor para procesar los datos, lo habría puesto en la ventana de contexto
+00:50:38.240 y luego habría empezado a hacer eh function calls, eh, por ejemplo, pues para acceder, tengo la herramienta de
+00:50:44.200 acceder a la base de datos de tal, pero la explicación de por qué hace eso, por ejemplo, todo eso no es eh faithful, no
+00:50:52.160 el motivo y la razonamiento no es faithful y el orden en el que lo hace tampoco es determinista. Yo le vuelvo a
+00:50:58.880 dar los mismos datos o le vuelvo a dar otro y no te vuelvo a dar el mismo resultado siempre. Pero espera, es como voy a hacer double
+00:51:05.680 clic aquí. Es como tenemos este proceso en instructions que es un natural language normal como idioma normal. Por
+00:51:12.839 eso después el LM está separando esto paso por paso. Estoy intentando pensar queé cómo está
+00:51:20.200 construido esto interno. Está separando paso por paso y está ejecutando cada paso para ver los resultados.
+00:51:26.599 Sí. y está escribiendo el código para cada pasig ejecutándolo o si RPA puede ser que vale muy lento hoy pero no
+00:51:33.680 entiendo la diferencia honestamente con Tool calls porque al final si tú preguntas ahora el MGPT5 o algo mira
+00:51:39.559 tienes esto, por favor crea un plan primero, después házeme hazme como esos
+00:51:45.119 llamadas en la cadena va a pasar lo mismo, ¿no? Porque tú no puedes combinar tool y
+00:51:50.520 no puedes combinar tool calls ni puedes llegar a la flexibilidad que te da la lógica de hacer código libre. Esto no
+00:51:56.839 está haciendo tool calls, esto está haciendo código libre y no tiene por qué definirse funciones. Puede literalmente
+00:52:03.720 tirar el contenido de la función e o crearse un loop con una tool y llamar al
+00:52:08.880 final de la de hacer un try catch dentro de la tool. Eso no lo puedes hacer con con tool calls. No puedes aplicar la
+00:52:15.720 lógica del código per sé con las tool calls, eh, porque son funciones. No sé
+00:52:21.240 si me estoy explicando. No puedes Sí, pero pero con con code interpreter, ¿vale? Pero si tú lo haces solo con code
+00:52:26.559 interpreter y el code interpreter lo tienes como una tool, luego tienes que controlar todo el code interpreter, o sea, eh es donde tienes que controlar
+00:52:33.599 todo el code interpreter, pero tú no puedes combinar ese code interpreter con las function calls que le has con las
+00:52:38.760 otras herramientas externas que le has metido. Tendrías que instanciar todas las herramientas dentro del code interpreter y utilizar únicamente el
+00:52:44.359 code interpreter, que va la dirección de lo que está haciendo MA. Y y si eso lo haces en esa dirección, el problema que
+00:52:49.720 tú tienes, el reto que es es escalar eso y eso es muy, o sea, es más complejo de lo que parece, pero ves ahora un poco la
+00:52:57.799 diferencia y con esas tool calls que aunque puedan ser iguales también la forma en la que instancia la
+00:53:03.559 tool y la utiliza no no. No, o sea, el lo que te explica no
+00:53:09.319 es verídico y tendrías que hacer solo toolcs, solo sería tool call, tolcol, tolcol, tolcol. Y sabes,
+00:53:14.799 entiendo, entiendo que al final, intentando simplificar esto al máximo, que tenéis un metaol que con parámetros
+00:53:22.119 vosotros podéis hacer una composición de otras llamadas. Es que mira, yo voy a pasar, imaginamos que 20 tool calls y
+00:53:28.359 este tool está creando un tool de manera dinámica para llamar todo esto, ¿no? Tenemos un ordenador que le escribe
+00:53:35.920 import. Primer paso, eh, o npm install. Primer paso, siguiente paso, tal. Lo que
+00:53:42.799 pasa que conoce el ordenador y si me si le da por escribirme lenguaje natural,
+00:53:48.119 pom, no funciona, obviamente no compila, o sea, no no ejecuta.
+00:53:53.960 Y en vez de hacerlo con y eso lo que me permite al final es que
+00:53:59.960 yo me voy guardando todo obviamente y lo voy ejecutando y cuando llego al final y he resuelto el problema, estos pasos que
+00:54:05.520 se ven en la pantalla que están con lenguaje natural para que el usuario de negocio lo entienda y con la verificación de que está bien, por
+00:54:11.280 detrás yo tengo un código, yo haso el input de data y si me vois a lanzar lo mismo, ya te he resuelto el problema con
+00:54:18.079 código para ese caso de uso ya te he resuelto esa transacción con código y Eso no lo puedes hacer.
+00:54:24.319 ¿Qué es lo que has? O sea, hasheas el input data tú lo puedes el input del principio de todo. Claro. Los datos que más da de entrada.
+00:54:30.799 Si el resultado puedes explicar lo mismo con otro lenguaje. Entonces ya no, o sea, con otros. Claro, si me cambian las instrucciones
+00:54:36.880 ya no para esos datos ya no lo me cambias el programa. No, no. Eh, ah, pero puedes pedir lo mismo de otra
+00:54:42.880 manera. No, es que no no quiero complicarlo. Eh, lo que lo que eso es una forma de
+00:54:48.720 explicar de que una vez es una ventaja que una vez yo ya lo tengo resuelto, yo ya tengo la traza de código que para esos datos con estas instrucciones de
+00:54:55.440 esta versión me resuelve el problema. Entonces, si yo vuelvo a dar lo mismo, me puede volver a dar, obviamente, el
+00:55:00.599 mismo resultado. Eh, y si estoy contento, pues lo puedo ir y desplegar. Y ventaja que esto tiene, pues me puede
+00:55:05.960 hacer ficheros de me puede generar ficheros de output, el que yo quiera. Tengo toda la flexibilidad, docs, eh,
+00:55:12.680 Excels, me puede interactuar con herramientas externas, con navegadores externos. Imagínate todo eso ya no solo
+00:55:19.559 con tools, sino que además luego las utilice de forma reliable y que yo pueda ir a alguien y decir, "No, es que le ha
+00:55:25.520 dado por utilizar esta tool." No, ese es el problema, o sea, eh uno de los problemas principales. La decisión de
+00:55:32.240 usar la tools está en la pero aquí no utiliza tools. Aquí se construye eh lo que haga falta de código, ya sea
+00:55:38.960 utilizando un paquete de npm o un paquete de Python ya preinstalado. Pero al final, ¿dónde sacamos este
+00:55:44.480 determinismo? Porque tú estás diciendo que mira, un codex, un cloud codes, agent de open AI, no son determinísticos
+00:55:51.119 y vuestra herramienta es por eso en la segunda ejecución, que esa es la clave, la no existe.
+00:55:57.200 Ah, es la segunda porque si hay un plan y después está Vale, vale, vale, vale. Ahora, o sea, en la segunda ejecución con el
+00:56:02.760 mismo dato es donde viene ese auditabilidad y ese determinismo porque ya lo tengo. La primera no puede ser determinista porque no por naturaleza, o
+00:56:09.319 sea, pero una vez yo ya lo tengo resuelto para ese caso de uso con esos datos, por eso está muy enfocado RPA,
+00:56:15.880 porque son procesos repetitivos que la gente ya entiende como como cajas negras o como o como una función establecida,
+00:56:23.240 ¿no? Que aunque haya cierta incertidumbre dentro o cierta indeterminación dentro, eh básicamente está determinado lo que
+00:56:30.480 se espera de esta función. El mercado lo llama APA en planentic process automation más que RPA. y vamos
+00:56:36.760 a ese mercado porque lo entienden, porque ellos se han peleado con estas cajas con flechas toda la vida y ahora de repente esto para ellos es como,
+00:56:42.720 ¿qué? ¿Que puedo hacer esto en tiempo? Y el determinismo insisto en que viene yo
+00:56:48.880 hecho esto, o sea, y te viene la durante la segunda ejecución con los mismos datos. Ahora bien, cambio las instrucciones porque el correo quiero
+00:56:55.280 que me lo haga en chino mandarín. Vale, pues si lo cambio, ya no tengo el problema con código que te resuelve eso.
+00:57:02.599 Me toca, puedo recuperar del pasado que han tenido éxito cosas, pero me tengo
+00:57:08.240 que cambiar la cola o el final. Ahora, en vez de venirme esta suponena, me viene una con 50 páginas. ¿Me vale todo
+00:57:15.440 lo anterior? No, me valen algunas cosas de lo que haya hecho anteriormente, que para eso está en low y la magia de la
+00:57:21.599 plataforma que va haciendo que el worker aprenda. Vale, pero ahora tengo que
+00:57:26.760 hacer cosas nuevas. Ahora tengo que leerme 50 páginas, no es lo mismo que leerse una. Y luego encima tengo que buscar va a crear otro el mismo business.
+00:57:33.319 Exactamente. El mismo el mismo user. El No, no, no. Este lo va a poder hacer.
+00:57:38.359 Esa es la Ahí es donde viene la adaptabilidad. Este ya está preparado para resolver esa tarea y yo ya le he puesto que tiene que leer y extraer la
+00:57:45.039 información relevante. Por eso, por para entenderte, tenemos este workflow interno que que hemos
+00:57:51.000 casheado y pero sí hay otro input, olvidamos este cash y repensamos cada vez, ¿vale?
+00:57:56.359 Claro, pero él puede pero él sabe, él tiene experiencia, me explico. Él tiene experiencia y él tiene esa
+00:58:02.359 lógica guardada y y aprendizaje que tiene de la misma. Y en este caso el Lem está decidiendo si vamos a usar esta
+00:58:08.599 cash o vamos a olvidar todo y no. Eso es eh eh no, eso es si hay un
+00:58:13.920 success, entonces vuelves a utilizar los mismos datos. Es decir, si yo he tenido éxito en la ejecución, ¿quién determina el éxito?
+00:58:21.280 ¿Quién determina el éxito? El sistema. Pero en caso de esos y el humano dando click,
+00:58:26.760 imaginando estos 50 páginas, que en la primera página hay account number, pero hay 49 otras páginas también con otros
+00:58:33.039 account numbers. sistema este va a darte okay porque en la primera página hemos encontrado account number, pero input es
+00:58:39.319 también diferente. Sí, primero se leerá todo el documento y probablemente vea que hay más de un account number y entonces si no es capaz
+00:58:45.760 de resolverlo o parará y te dirá, "No soy capaz de resolverlo con las instrucciones que tengo en este momento." En el caso de que ese esa
+00:58:52.960 causística no esté contemplada o no esté dibujada. Y entonces lo ves, eh
+00:58:58.880 no ha llevado a cabo la tarea y no puede equivocarse. Lo haces. Sí. Esa es la clave, puede
+00:59:04.599 equivocarse, pero sabes que es un error, no una alucinación. Esa es un poco también parte la clave, puede equivocarse, puede extraerme la
+00:59:11.119 información no correcta, pero yo puedo ver cómo ha utilizado el código, puedo ver cómo ha hecho esa extracción, cómo
+00:59:17.480 ha hecho esa tarea. Entonces, convierto, lo podemos hacer resistente a las alucinaciones. No quiere decir que no me
+00:59:23.160 vaya a alucinar, quiere decir de que me caso que me alucine, no va a funcionar, me va a cascar el código en caso de que se invente variables o lo haga. Y en el
+00:59:29.880 caso de que malinterprete un concepto, voy a ver por propiamente cómo ejecutar
+00:59:35.000 la tarea para hacer esa extracción que no la que no está bien entendido. Y eso es como nosotros estamos consiguiendo
+00:59:41.359 llevar a a producción estos casos de uso, porque necesitas tener esa auditabilidad y esa
+00:59:47.599 Pero entiendo esto para false negatives para para false positives es exactamente este que tenemos 50 account numbers y LM
+00:59:54.039 extrayendo primera y está feliz con esto. Ah, esto tú cómo puedes valerar esto porque al final paso está pasando.
+01:00:01.400 Es como mira account numbers y y podemos ejecutar todo el workflow, pero nos nos
+01:00:07.000 falta un montón de datos en este caso. En ese Pero es es que no son tontos. Quiero decir a lo que me refiero con los
+01:00:12.680 modelos, aunque sigue las instrucciones es el problema de no del mismo. A veces son muy inteligentes, a veces son muy
+01:00:17.920 tontos. principalmente, o sea, digo hipótesis porque no sé cómo se va a comportar,
+01:00:24.480 literalmente sé lo cómo se va a comportar nuestro sistema. Si las instrucciones tú pones lee la lee y y
+01:00:30.480 busca por los saca por el account number y a la hora de hacerlo el modelo B que tiene varios account numbers lo que va a
+01:00:35.880 hacer probablemente vaya a ser buscar por todos los account numbers que que existen y si no es capaz de encontrarlo todos es cuando luego pase el checker,
+01:00:42.760 el quality assurance que nosotros llamamos checker, eh, que es lo que pasa después, es el humano, ¿no? es la es un modelo, o sea, es
+01:00:49.599 encima un servicio encima construido con otra KPU que es nuestra tecnología simplemente para decirnos si la
+01:00:55.920 ejecución ha tenido sentido o no ha tenido, o sea, si ha seguido las instrucciones, si ha seguido el knohow y
+01:01:01.039 si el el resultado es coherente, pero no lo hace una traza de lenguaje natural, lo hace una traza de código más todo el
+01:01:08.000 contexto del knohow anterior, más todo el contexto de las instrucciones, lo que nos permite con mucha seguridad decir,
+01:01:14.839 pero no 100% 100% no hay Nada, eh, pero una regla de Pero nosotros lo que lo hemos hecho es
+01:01:20.799 conservador. Prefiero que me digas que está mal y esté bien, que me digas que esté bien y esté mal.
+01:01:26.680 Vale. Y Vals, al final, ¿cuándo metemos una persona aquí? Que mira, al final un error, tenemos que ajustar algo con
+01:01:33.319 ¿Cómo cómo podemos hacer esto para meter una persona? Ah, el está lo
+01:01:38.480 que yo lo puedo desplegar, ¿vale? Y si yo lo despliego, tengo el control tower. Eh, por un lado tengo controlware, puedo
+01:01:45.520 generar tokens para compartirlo. Aquí tengo el y desplegamos en vuestra cloud o en tu cloud. Si quieres, si lo quieres
+01:01:50.839 en premis, lo puedes tener en premis, eh, sin ningún problema. Y si pero es una máquina, en cualquier caso es una máquina que
+01:01:56.480 sí es esa es un poco también nuestra ventaja. Sale también más barato porque la IA no es la que está haciendo la
+01:02:01.520 extracción, está haciéndolo con código y me sale más barato escalar esto que si escalo solo utilizando el LMS con tokens
+01:02:07.640 y que racks y no hay agentes eh chinos tipo Manus. Manus utiliza un code interpreter, una
+01:02:14.119 máquina de Linux como herramienta para llevar a cabo cosas como hacer presentaciones, etcétera.
+01:02:19.200 Ah, pero luego utilizan un montón de herramientas más, pero sí que van en esa dirección, por eso también funcionan tan bien, eh, van en esa en esa dirección,
+01:02:27.400 pero ellos no, ellos lo tienen como tool, que es es que es un tienen la máquina como tool,
+01:02:33.039 ¿sí? Lo tienen como una function call, eh, por así decirlo. Nosotros no. tú ves
+01:02:38.799 mi código de el código que tengo y yo no tengo ninguna llamada de function cola
+01:02:44.160 externamente. Sol, tengo el modelo, ¿vale? Y, o sea, es que no,
+01:02:51.359 nosotros en este sentido no no venimos
+01:02:56.720 con ego ni a decir, "Oye, que esto es así, ¿sabes? Eh, porque nadie lo sabe. Y es que esto sí que me parece importante
+01:03:01.839 en este momento de la conversación. Nosotros planteamos algo que remueve un poco porque vienen eh vienen dos dos
+01:03:10.839 Manu y yo, los y venimos a decir, "Oye, que es que creemos que no tiene mucho
+01:03:16.599 sentido eh algunas cosas cuando los calas y y nos podemos equivocar. Hay
+01:03:22.039 mucho mercado para lo otro, o sea, para lo otro me refiero para RCK, chatbots, tal." O sea, esto no tiene que servir de
+01:03:27.279 va a pues ya no voy. MA va a un mercado regulado Enterprise con una necesidades
+01:03:32.559 superdintas de la queancia es todo el mundo Enterprise, yo insisto, eh, o sea, no hay nadie en enterprise que si esto
+01:03:38.839 va bien no prefiera esto. Yo te hablando no conozco a nadie, ¿no? Incluso para hacer customer service dices, [ __ ] es
+01:03:45.839 que yo no est chatbot. Aquí hay una cosa que es importante. Yo no hago chatbot. Entonces, a mí para que me utilices en real time
+01:03:53.240 sí es lento y no está pensado para eso. Esto está pensado para hacerte una tarea en toend, ¿vale?
+01:03:58.359 Un proceso en to end. Pero un chatbot tiene tareas en to eh, también. O sea, un sistema de ticketing,
+01:04:04.520 sí, tú le puedes dar a un chatbot una function call que sea un worker. Eso sí que puedes hacerlo.
+01:04:10.359 Traducido eso. Tú le puedes dar a un chatbot que tú tienes como customer service una herramienta que sea llamar a
+01:04:15.960 uno de mis trabajadores digitales como herramienta. Eso puedes hacerlo. Eh,
+01:04:21.480 esta es la vista, esta es una vista que cualquier miembro del equipo que tenga permiso se puede clonar el worker. Ah,
+01:04:27.440 puede cualquier persona venir y utilizarlo eh, sin necesidad de tener que hacer prontiñ ni copiar y pegar prons. tiene da los datos y ejecuta.
+01:04:34.319 Aquí no hay prompt engineering, ¿no? Y luego tienes la API. Cada worker se
+01:04:39.680 puede utilizar con como una API, ¿eh? Entonces, cualquier persona puede utilizarlo. La API y aquí fijaros que
+01:04:45.680 tengo la versión uno. Pero si yo me vengo aquí y creo una nueva versión y le digo que de email
+01:04:53.119 I want it in Chinese Chinese. Por cierto, abre abre tu email en algún
+01:04:58.880 momento. Voy. Eh, eh. Os pauso la grabación y y os lo abro. Eh, eh, me cambia esto. Veis
+01:05:06.720 que me lo ha cambiado a chino y si yo ahora, fijaros, aquí tengo la versión uno y si yo despliego la versión dos,
+01:05:13.079 pues recargo y ya tengo la versión dos desplegada, con lo cual me permite asíncronus y además la API es la misma,
+01:05:19.279 eh, y lo único que me cambia es que a lo mejor puedo añadir variables de entrada, etcétera, pero yo solo lo implemento una
+01:05:24.599 vez y además me permite recuperar los ficheros. Entonces, yo hago una vez implementación, esto para los técnicos, yo hago una vez de implementación y
+01:05:30.920 luego así mi equipo de negocio puede seguir mejorándolo y como mucho me pinguea de al oro que ha añadido una
+01:05:36.039 nueva variable de entrada para que yo haga lo que quiera con con eso. Tienes que cambiar IP después. Sí, sí, tengo que cambiarlo. Tranquilo.
+01:05:42.799 No, no, este me lo me voy a venir aquí, lo voy a borrar, o sea, que no te preocupes, ¿eh? Pero gracias. Voy a
+01:05:47.880 abrir el correo, eh.
+01:05:53.160 Ar. A ver, vamos a ver. Tiene que estar por aquí. Aquí está.
+01:06:00.960 Eh, le doy otra vez. Vale, reanudado. Esto es de las 11:35. Ha pasado un rato
+01:06:06.400 porque lo hemos enviado antes. Yo no le he dicho que hacer, ¿no? Tú utilizas Supergan, sí, ha venido de de CPU, voy a
+01:06:12.039 ampliarlo, ¿vale? Ha venido del del correo de capo@amaa. Aunque obviamente se pueden saciar correos. De hecho,
+01:06:17.279 pronto cuando tú te despliegues tendrán también un correo electrónico los trabajadores digitales. Entonces, podrás escribir un correo para que reciba los
+01:06:23.880 datos y ejecute las tareas. Y simplemente me ha hecho la tarea. Me ha encontrado a Peter Ford, que era la persona que había que encontrar, pero
+01:06:30.160 además se ha dado cuenta de que con el mismo email había otro usuario con otro nombre y aquí otro. Yo no le he puesto
+01:06:35.640 como quería el correo. Yo ahora le puedo decir, "Oye, cámbiame el formato, cambia tal." Ha sido una primera ejecución y si
+01:06:40.960 estoy contento con el resultado, ya sí que es ¿Qué pasó con el tercero? Eh,
+01:06:46.000 el tercero, ¿qué pasó? El número de teléfono, supongo. Sí, es el número de teléfono. Y claro,
+01:06:51.480 aquí va el punto. Esto no lo vi, esto no lo ha escrito. Esto viene de que ha cogido y y ha hecho en el código
+01:06:57.960 variable x nombre de variable. Y esa es la diferencia. Eso no lo puedes
+01:07:03.440 hacer con Function Tools y eso me hace que si yo vuelvo, pam, o tiene lo mismo.
+01:07:08.520 Y o sea, y por eso que al final como hemos hecho la esto nosotros
+01:07:16.160 planteamos un paradigma porque mi cofundador que es Manu, que le contaba antes, es la persona que más modelos,
+01:07:22.760 Manuel Romero, que más modelos tiene hechos en Haginface, tiene unos 500 y
+01:07:27.960 tiene unos 184 millones de descargas. Es un español tiene más descargas de modelos que Mistral, solo un español que
+01:07:35.359 es que es es Manu. El no, nosotros no hacemos modelos y mira que venimos de ese experti y yo lo admiro un montón,
+01:07:42.119 pero nosotros veíamos el futuro en el sentido de lo que he dicho, veíamos un mundo donde la IA tiene trillones de ventanas de contexto que funcionan muy
+01:07:48.480 bien, tiene velocidades vertiginosas, eh, como ahora kilobyt y gigabytes en
+01:07:53.559 internet. ¿Cómo opera la IA en ese mundo y qué va a ser importante? Y para nosotros lo importante era que fuera eh
+01:08:00.920 accountable, que que es decir, que yo pudiera verificar qué está haciendo también para aprender. Oye, me ha
+01:08:06.160 descubierto la cura del cáncer, no quiero que cómo qué nos faltaba por entender, qué no entendían el proceso. Y
+01:08:13.319 esa es un poco el porqué de Maisa, eh, el en la vista de largo plazo. Lo que pasa que somos un poquito así también
+01:08:20.198 que nos mola el ir fuerte al mercado porque oye, el mercado dice, "Oye, pues yo no quiero
+01:08:25.359 estar equivocado porque ayúdanos a entenderlo, pero nosotros no venimos a tumbar todo el resto de gente que está
+01:08:30.880 haciendo las otras cosas porque hay mercado. Ahí venimos a, o sea, no hay nadie haciendo lo que vosotros hacéis.
+01:08:34.000 No text
+01:08:36.198 Tal cual, ¿no? En este momento no, porque además ocurre otra cosa. Es muy
+01:08:42.679 es muy complejo de escalar, ¿eh? O sea, ¿cómo la escalabilidad? ¿Cómo escala esto?
+01:08:47.839 Cuando tienes eh 1000 instancias de este de este worker, lo que más cuesta es la, o sea, ya no
+01:08:54.679 son instancias, el worker lo tienes una vez, lo que escalas por la demanda, ¿cuánta concurrencia necesito? Eso es lo más complejo,
+01:09:00.880 eh, gestionar la la concurrencia, la demanda y los picos de demanda es lo
+01:09:06.319 principal. Es máquinas. Sí, pero sí, pero claro, es máquinas pero con credenciales guardando
+01:09:13.439 imágenes. Pero es que este este RAM tenía esto y este otro RAM tenía lo otro. Cuando digo RAM me refiero a
+01:09:19.040 ejecución. Es que cuando lo utiliza David tiene que tengo que acceder a al servicio de este
+01:09:24.719 sitio, de ahí me tengo que traer su autentificación. Todo eso es un es más complejo de lo que
+01:09:32.560 parece, que esto es un básicamente un play de infraestructura, ya. Eh, o sea, es cómo escalar
+01:09:38.679 muchas instancias de muchos workers que tienen governance, que me guardo y
+01:09:45.279 tal y que además sea eficiente económicamente y al mismo tiempo me cambia GPT5 y acaba de salir Sonet 44 y
+01:09:53.040 mi cliente no puede utilizar este modelo, solo puede utilizar Open AI o solo puedo utilizar Gemini o solo puedo utilizar Cloue y yo sé internamente que,
+01:10:00.480 o sea, sabemos que es por es por eso clientes muy grandes que tienen
+01:10:06.440 Eh, pues procesos muy críticos y regulados. Eso es, ¿no? Y les cobras un millón de euros,
+01:10:12.840 ¿no? También vamos a clientes que son eh pequeños y no cuando digo pequeños me
+01:10:17.960 refiero que se pueden permitir 80 100 al año donde les damos 15 10 15 trabajadores digitales, que es muchísimo
+01:10:25.360 porque puedes hacer tareas superclejas y con eso lo tienen. Tiene la plataforma
+01:10:31.280 10 o 15 trabajadores digitales por 100 al año y y sin límite de uso.
+01:10:36.000 No text
+01:10:38.560 Pero también estoy pensando a nivel de errores. Exactamente. Que tú estás diciendo que hay un montón de,
+01:10:43.840 o sea, no nunca va a la primera, ¿eh? O sea, obviamente la primera vez algo te hace no sentido. Es como hay un montón de IPIs externos, credenciales, cosas,
+01:10:51.520 tokens revocados y todo esto. ¿Cómo cómo soporte todo esto ecosistema aquí?
+01:10:58.080 Esa es la por eso digo que es complejo de escalar y luego va más, ¿no? Pero, ¿quién también está haciendo esto? Es una persona dentro de de una
+01:11:04.520 compañía. No, nosotros vuestro equipo. Sí. Nuestro equipo es el que nosotros
+01:11:09.800 tenemos personas que para esos clientes se encarga de traer de ayudar en ese
+01:11:15.640 como si fuera un forward de plineer pero más SRS de bobs que que les ayudan en esa parte. Hay muchas cosas que os digo
+01:11:22.560 que no están resueltas, o sea, Maisa está en el 10% en este momento. Habremos
+01:11:27.760 levantado y pero esto está en pañales y no no en pañales, os hablo de todo el
+01:11:33.080 mercado. O sea, nosotros iremos por delante, pero yo veo todo lo que nos queda por delante y digo, es que hay
+01:11:39.920 tanto por resolver. Ya puede funcionar para producción. Sí, puede funcionar para todos, para todo el mundo, que todo
+01:11:45.679 el mundo entre, ¿no? Ni nosotros ni el mercado está el worker de las facturas sigue funcionando, ¿no? Sí, sí, sí. Sigue 3000 horas, o sea,
+01:11:53.080 tiene unas 3000 4000 llamadas al mes más o menos. ¿Cuánto lleva pagando este cliente por este worker?
+01:11:58.159 Pues desde enero. ¿Y cuánto paga? Poco. Es el primer cliente,
+01:12:03.639 paga unos 500, 600 al mes. 600 € al mes para procesar las facturas. Claro. Pero tú sabes lo que se vale un
+01:12:09.920 bot de RPA, un bot de RPA que necesitabas tres para hacer ese y un 65% son 15,000 €
+01:12:15.639 al año. 10,000 € por ejemplo. Sí. que por dentro también tiene un OCR, o sea,
+01:12:21.199 tiene su propio OCR. Sí, tiene su propio CR. Eh eh y una ventaja que nosotros tenemos
+01:12:27.800 que mola es que somos agnósticos a los modelos, etcétera. Y
+01:12:32.920 esto es un caso de uso de nuestra tecnología, que es la KPU, pero yo a mi tecnología fuera de Maisa, aunque aquí
+01:12:38.520 te ayuda mucho, ¿no? Pero le meto acceso a Gémini, al ordenador,
+01:12:44.520 a Sora 2, al API de Sora 2, le meto acceso a Level Laps, le meto acceso como
+01:12:50.000 API, me refiero, eh, y le doy los credenciales en el entorno y le digo, "Ejecútame una película y será son
+01:12:57.239 truño, no son muy buenas, pero lo hace bastante bien. Nosotros lanzamos dos KPUs, la primera el año pasado, en marzo
+01:13:03.719 del año pasado, que mejoraba, que no sabíamos para qué utilizarla, sinceramente. La segunda, a final de
+01:13:10.960 este del año anterior, en octubre, que le llamamos Binchi KPU, que igualaba el performance de 1 utilizando un modelo eh
+01:13:17.719 más pequeño que era Sony 3.5, salió uno y dijimos, pues mira, esto se puede hacer ya con un 3.5 y una fracción del
+01:13:24.480 coste. Y ahora pronto yo creo que lanzaremos algo
+01:13:30.440 gordo, una KPU. Ahí estamos, tenemos ya el camino y está
+01:13:36.520 avanzando. Pero gordo, gordo. ¿En qué sentido? En que a día de hoy un trabajador
+01:13:43.000 digital pues te puede trabajar máximo repit creo que llegó a 200 horas
+01:13:48.440 públicamente o algo así o no 200 minutos creo que fue. No, 200 horas como 3 horas máximos o algo.
+01:13:54.199 ¿Cuánto era? 3 horas o no sé qué. Ahora Cloud COD estábamos diciendo que mira 14 horas o no me acuerdo, pero no son tantos.
+01:14:00.400 Gordo en esa dirección, pero también te digo que no es solo más tiempo, es la profundidad de lo que puedes hacer. Tú piensas que pasa,
+01:14:06.000 No text
+01:14:07.880 hay mucho por investigar, ¿eh? O sea, y pero tenemos una vía y está funcionando. ¿Qué pasa cuando esto se llama a sí
+01:14:14.159 mismo y comparte entorno? Y entonces ya te digo que todavía lo que se hemos dicho del Function call todavía tiene
+01:14:19.679 más peso. Ah, ¿qué pasa? ¿Cómo se llama a sí mismo? y eh los hijos pueden trabajar con ficheros y gestionas el
+01:14:26.360 contexto que la antana contexto virtual, pues esto puede hacer cosas mucho mucho
+01:14:31.679 más complejas y largas a de hacer que no hace falta para el mundo real. Al final hay que gente quiere invoices, cierre de
+01:14:37.719 cuentas contables, eh eh trade, algunos casos son más complejos, pero
+01:14:44.400 viene, o sea, al final mola porque nosotros somos una empresa de a mí me mola, somos una empresa que venimos de
+01:14:50.840 hacer deeptech y que nos mola el ir de y el oye, que no todo es hacer
+01:14:56.000 foundational, que la capa de encima y eso que venimos de ahí, hay muchísimo valor por crear y y es y mola bastante.
+01:15:04.199 ¿Cuánto facturáis? Perdona volver a la realidad. Gracias.
+01:15:10.280 Cuatro y algo. 4 millones de euros. ¿Con cuántos clientes? Siete. Casi.
+01:15:15.760 Siete. Sí. ¿Y los clientes son grandes bancos? No, todos no. Ahora van a venir más.
+01:15:20.960 Entonces espero que la facturación crezca bastante. Eh, eh, ¿como cuánto cuánto esperas que crezca?
+01:15:24.000 No text
+01:15:26.400 Bastante. No lo sé. Es parte del juego de negociación que tengo ahora, que tenemos ahora. No, espero que suba, pero
+01:15:33.440 pero yo no miro en el corto plazo, o sea, no miro de hacer un lobable 100 millones, estoy haciendo esto. Yo miro
+01:15:39.360 de sustainable business y si ahora a un banco le tengo que cobrar
+01:15:44.920 1 millón, 2 millones, 6 millones, que suena mucho, pero es que lo que pagan a otros proveedores son 30 millones, 40
+01:15:50.960 millones, pues no pasa nada. Yo ahora voy a intentar ser el único vendor del mercado que les puedes les puede ofrecer
+01:15:57.400 una capa de auditabilidad y trazabilidad, darles una solución que les funcione para los casos de uso que tenga, que
+01:16:03.600 pueda hacer Land expand, que pueda ir a cross departments, que tengan todo el gobernas de los datos
+01:16:09.880 y que lo puedan tener mañana, que no es así porque hay que pasar por el CISO, seguridad y todo lo que quieras.
+01:16:15.400 Y a nivel de mar si vas a un premis, pues yo te pongo recursos. Esos recursos es donde me lo
+01:16:22.120 co, ¿no? Porque yo estoy pensando que al final todo el mundo ahora está diciendo que va a ser más barato, todo bien, pero en vuestra caso, los máquinas y todo más
+01:16:29.480 o menos el coste es no llega ser más alto que la IA. Exacto, exacto. Por eso estoy pensando lo mismo.
+01:16:35.760 Sí, o sea, depende del eh nosotros donde menos ganamos es en el cloud, pero es donde más bueno, no es donde más apeno
+01:16:41.719 también, eh, pero me aporta también mucho tener clientes en el cloud, entonces porque nos permite aprender,
+01:16:47.000 eh, también eh porque un enterprise es mucho más cerrado y en un cloud puedo
+01:16:52.120 meterte poso, aunque sea para saber que vas que vas clicando, eh, aunque no vea lo que haces, ¿no?
+01:17:01.280 Los márgenes ahí son mucho menores y hemos ido a perdidas en algunas cosas
+01:17:06.600 en plan, pero en la parte de Enterprise Pris los márgenes son mucho más altos porque son premis, entonces nosotros no
+01:17:12.320 pagamos la infra, etcétera. Ahora bien, la exigencia es 50x, ¿eh? O sea, es es
+01:17:17.400 la exigencia es altísima. Ah, el cliente lo quiere lo quiere ya. Y si lo quieres ya se lo vas a tener que dar ya porque
+01:17:23.800 están pagando y porque al final eh nosotros nos viene bien
+01:17:31.480 también esa ese push y esa presión de porque nos hace correr. Yo hay una metáfora que digo siempre y no me quiero
+01:17:37.120 ir por las ramas que es que esto es una es una es una maratón de queniatas. En
+01:17:43.840 el mercado en el que estamos es salvaje y es una maratón de queniatas. Eso es una broma porque una maratón de
+01:17:49.280 quiniatas yo no la aguanto, o sea, no aguanto ni un kilómetro que son a 240 del minuto y son 40 km y aguanta tú así
+01:17:56.280 el ritmo. Y nosotros es algo que, por ejemplo, a nivel cultural de empresa es algo que estamos viendo que es muy
+01:18:02.040 importante en este mercado. Relacionado con márgenes incluso. Em vemos que es
+01:18:07.080 superrelevante el la cultura de equipo, el cuidarla y el al mismo tiempo saber
+01:18:12.800 decir que no a clientes para poder dar buen servicio a los que tienes ahora. aunque pierdas margen en algunos sitios
+01:18:18.360 o menos, porque ahora mismo no hay nada mejor que estar con un cliente en un mercado que está todo por descubrir y
+01:18:25.239 ver qué problemas hay más allá de que me haga bien la tarea, porque eso es lo que
+01:18:30.280 os aseguro que el mercado no está viendo. Cuando consigues que te haga bien la tarea, el espectro de problemas que se te abren es, os digo, es todavía
+01:18:36.719 mayor. Autorizaciones, compartir, roles y governance. Eh,
+01:18:42.719 eh, una reflexión, eh, Mercor, que ahora pasa a ser la empresa de más crecimiento
+01:18:49.159 de la historia, supuestamente, sí, eh, que ha ido de 1,illón a 500 millones en 20 meses o no sé, una locura.
+01:18:56.800 Sí. E ellos encontraron el volumen vendiéndole a los grandes laps, o sea,
+01:19:03.679 experimentaron con varias empresas buscando paints cada vez más grandes y acabaron vendiéndolo a los propios laps
+01:19:10.080 de no los a los frontier models. Em, ¿no tiene sentido para vosotros hacer algo
+01:19:15.760 parecido? ir a buscar la el el pay, el cliente más grande posible, facturar
+01:19:22.800 mucho ahí, generar mucho volumen e y luego ir bajando poco a poco.
+01:19:30.800 Puede ser. No te puedo decir que que no puede ser. Ah, depende cuál sea el objetivo. Eh,
+01:19:37.480 el objetivo ahora mismo es es lo que estamos intentando hacerlo, convertirnos en el referente de enterprise a nivel
+01:19:44.679 B2B. Eso lo quiere hacer mucha gente de empresas, ya, pero de empresas reguladas en nuestro
+01:19:49.000 No text
+01:19:50.239 caso. Nosotros no queremos convertirnos por decirlo. No te conviertes en algo por decir que lo eres, te conviertes
+01:19:56.320 porque el mercado te reconoce como tal. La única forma de hacerlo es cerrando clientes, haciendo que estén contentos,
+01:20:01.800 que hablen bien de nosotros, que les guste lo que hacemos. dicho que el proceso de meterte en un cliente en este en este mundo regulado
+01:20:07.840 es lento y difícil, ¿no? O sea, solo el acceso, solo el entrar por la puerta, encontrar
+01:20:13.400 stakeholder y explicárselo ya lleva meses. Estoy de acuerdo, ¿no? Entonces, por eso digo, o sea,
+01:20:19.280 ¿cómo eliges el camino para escalar en esta maratón de keniatas que tú dices? Lo más rápido posible, ¿no? Si es que es
+01:20:25.960 el objetivo. Sí, lo lo lo es. Eh, lo es. dándote cuenta de que no lo puedes hacer
+01:20:31.920 solo es un primer camino. Y que tienes que encontrar partners y partners pueden
+01:20:37.920 ser consultoras, pueden ser integradores y pueden ser otros que ya estén dentro de esos clientes.
+01:20:43.280 y que tú, en nuestro caso Maisa, nos centramos en banca, financieros y
+01:20:49.679 oportunistas con algunas oportunidades que consideramos que son que son interesantes tanto en España, Europa
+01:20:55.159 como en Estados Unidos en este momento. ¿Qué es lo que estamos haciendo? nos centramos ahí principalmente y luego eh
+01:21:02.080 damos onboarding a nivel cloud a usuarios que pues podéis ir vosotros que son más técnicos y que pueden ir más
+01:21:08.320 independientes y que no tengo que ir no hay tanto que hacer a nivel complejidad y esto ya les va a aportar un valor
+01:21:13.719 enorme. Pero luego para hiperescalar hace falta partners eh tanto con los cloud
+01:21:20.600 providers como con eh integrators y luego escalar a nivel de equipo y foco.
+01:21:27.400 Pero ahora mismo no hay nadie, si te lo digo a nivel mundial y hablamos
+01:21:32.679 con los modeliders de estos temas porque a nivel mundial que puede ofrecer el
+01:21:38.080 valor que nosotros estamos dando al sector que estamos yendo, que es banca y servicios financieros en este momento. Me refiero a nivel de core de empresa,
+01:21:44.960 de esos wes que buscamos. Entonces, si en el corto corto plazo nos convertimos
+01:21:51.600 en los próximos 89 meses en el referente para servicios financieros y bancarios de eh trabajadores digitales, agentes de
+01:22:00.080 agéntica, suena bien. Y si en paralelo yo tengo a consultoras yéndome a Telecom, Energía,
+01:22:06.840 etcétera, porque ya están dentro y les está funcionando, pues doble bien. Y si
+01:22:12.040 a la vez e tengo la parte de cloud con el mismo producto todo, todos los ratos
+01:22:17.280 con el mismo producto donde tengo clientes más startuperos, más tecnológicos, que no tengo que hacerles
+01:22:23.360 un onboarding ni estar tan tan pendiente como un Enterprise y puedo darles un servicio de calidad, pero no tengo que
+01:22:29.840 estar 247, ¿sabes? Eh, ahí es donde empiezas a encontrar que hay un filón y por eso levantas y vas a
+01:22:36.360 por él y te y alguien tiene que hacerlo y a nosotros nos mola, ¿eh? Y queda mucho por hacer. Es que a mí es lo que
+01:22:42.600 me gusta y al mismo tiempo me da. Vosotros sois rentables. Has dicho que sois 40 personas.
+01:22:48.040 Eh, a día de hoy casi, o sea, lo fuimos, levantamos y ahora estamos en un momento
+01:22:54.320 en el que no, pero si quisiéramos podríamos. Es lo que Pero ahora mismo no estamos pensando en eso, sinceramente.
+01:23:00.520 ¿Cuántos sois? Casi 40. ¿Y cuántos queréis ser 60 final de año?
+01:23:06.159 ¿Qué perfiles? perfiles de producto eh de UX principalmente algunas personas de UX
+01:23:13.000 hay muchísimo que que hacer ahí. perfiles de eh IA, pero más una mezcla
+01:23:19.800 de no es solo ya aplicada, es una mezcla ya aplicada con Python, con otros lenguajes, un poco gente que sepa
+01:23:26.440 programar muy bien y que tenga intuición por la IA y e y luego perfiles de for,
+01:23:32.840 diría que de clientes orientado a cliente, tanto la parte de ventas de Go to Market como la parte de eh
+01:23:38.560 de Bobs, exactamente, forward, exactamente, que hay muchas de estas, ¿no? Sí, sí,
+01:23:43.719 no. y menos de lo que buscamos. Pero em eso es principalmente. Al final
+01:23:50.800 nuestra nuestro foco ahora mismo es mejorar el producto, aprender,
+01:23:56.120 cuestionarnos todo lo que nosotros mismos decimos. ¿De dónde sacáis el talento? ¿Estáis en
+01:23:59.000 No text
+01:24:01.520 remoto o en la oficina en Valencia? Tenemos oí en Valencia. Eh, también, pero principalmente es remoto, o sea, la
+01:24:08.679 oficina va el equipo que está en Valencia, un 60% menos, eh, 60% de los de los 60 y de los 60,
+01:24:15.800 sí, o menos. Eh, lo he dicho un poco así al tontún, es que como voy contando antes éramos más,
+01:24:21.360 pero a la oficina iremos unos 10, eh, puedes hacer que la gente vaya viniendo
+01:24:27.880 más, pero va el equipo más técnico. El ingeniería sí que está más en Valencia. ¿Y el talento de dónde sale? Pues viene
+01:24:34.679 un Head of Talent ahora que viene a ayudarnos a a descarar el talento. A está resuelto. Ya está. está resuelto.
+01:24:41.880 No, no, yo te digo que eso es esa es mi respuesta de hace falta ayuda, ¿eh? Hace
+01:24:48.520 falta ayuda. Vienen, mira, en Valencia vienen talento más del que parece, porque hay mucho
+01:24:56.000 persona que viene por COVID, que trabaja para empresas tecnológicas que no se quiere volver a trabajar a Estados
+01:25:03.159 Unidos y os sorprendería que hay más número del que parece.
+01:25:09.199 Pero vamos a remoto, o sea, es imposible escalar al para nosotros es imposible escalar si
+01:25:15.080 no es en remoto ahora mismo para el tipo de talento que necesitamos. Vale. Eh, ¿cuánto habéis levantado?
+01:25:22.040 Levantamos una presid de C y una S de 25. La presid de 5, ¿cuándo?
+01:25:27.840 En Se anunció en diciembre del 24, ¿vale? O sea, hace nada. Se anunció en
+01:25:33.440 diciembre, sí, pero fue a mitad de año oficialmente. Y pichateis a todos los fondos de
+01:25:38.760 España, me has dicho, incluyendo Idic, aunque dices, o sea, yo no te no te había visto antes.
+01:25:45.119 Yo creo no no hablé contigo. Hablé No hablé contigo,
+01:25:50.560 eh, pero sí que fue con España porque me hubiera encantado la conversación, eh, y me acordaría. Picha
+01:25:56.159 a pitcheamos a a hicimos España, Europa, Estados Unidos, ¿eh?
+01:26:01.440 Y solo se escucharon en Estados Unidos. Nos escucharon en muchos sitios, nos entendieron muy pocos porque no sabíamos exp. Mira lo que me ha costado hoy
+01:26:07.600 explicarlo, porque imagínate en un momento en el que ni siquiera sabía para qué servía.
+01:26:14.280 Yo sabía para qué servía a nivel fundacional. Oye, hallucination en plan yo lo hicimos para hacer overcom
+01:26:20.440 limitaciones de los LMS y nosotros teníamos un motor que podía utilizar herramientas en ese momento y no y te
+01:26:26.960 iba a veces, pero estaba ahí, pero veíamos unos resultados en benchmarks que que hacían 4x el performa de GPT4
+01:26:34.159 utilizando GPT4 y no sabemos qué hacer con esto. Entonces, si hoy ya ha costado esos
+01:26:41.159 pequeños detalles que en la escala importan son los pequeños detalles que que pues es un cambio paradigma, no es
+01:26:47.400 que miramos a otro punto, pero pero ese punto si lo escalas en el tiempo sí que es muy distinto como como se ve, ¿no?
+01:26:54.639 Nosotros nos encontrábamos este tipo de cosa que había un challenge enorme, pero íbamos con un mensaje un poco también
+01:26:59.800 agresivo de que RAG no va a escalar para casos de uso que vaya más allá de chatbots. Luego han salido 1000 papers
+01:27:06.400 que que prueban esa dirección. Entonces, ¿qué nos pasó? Obviamente nos pasó una respuesta de eh
+01:27:13.920 éramos dos, tres, o sea, un equipo muy pequeño de cuatro o cinco personas. Teníamos muy poca caja, o sea, unos
+01:27:21.440 300k, 400k. ¿Que de dónde salieron esos? de Business Angels,
+01:27:27.719 Pablo Fernández y otros Business Angels que se unieron a a echarnos una mano. Pablo nos presenta, ¿no?
+01:27:33.000 Y no Exactamente. Y y nos encontramos un nos cuesta
+01:27:39.360 explicarlo lo que hacemos porque somos los primeros en el mundo hablar de razonamiento, literalmente, eh, y en ese
+01:27:46.320 momento no estaba en la mesa. E y al mismo tiempo todo el mundo habla de razonamiento, pero lo que dice es que no es
+01:27:52.199 razonamiento. Sí, sí que, o sea, es que esa es una conversación profunda. Sí, Rison y no lo
+01:27:57.280 que están haciendo los modelos. Eh, yo te hablo bien eh estas conversaciones, ¿no? A mí también. Te hablo a nivel de
+01:28:02.920 concepto. A nivel conceptual nosotros hemos le llamamos Rison in Engine en su momento. Insisto que
+01:28:09.040 nuestra dirección es un sistema operativo de IA, pero no está todavía la tecnología ahí, pero es nuestro nuestro
+01:28:15.040 nuestra dirección. Tenemos la validación de que Carpaci al final del 23 habla del LLM OS. Mm.
+01:28:20.719 Entonces decimos, "Vale, no somos los únicos locos que vemos esto en esta dirección y hacemos
+01:28:26.080 la presi de cinco en Estados Unidos porque la respuesta que encontramos en España es nos entendemos que es es es
+01:28:34.679 nuestra también, o sea, es de no sabernos explicar, obviamente, porque éramos una tecnológica liter habíamos
+01:28:41.119 hecho tecnología, ni caso de uso ni producto, o sea, había, tenemos una tecnología muy potente con una que que no sabíamos ni los
+01:28:47.760 beneficios más allá que tenía. Descubrimos con el tiempo lo de la ostras, que hay un mercado que valora la auditabilidad y valora la trazabilidad.
+01:28:54.560 Sí, la valora y pero no y la trazabilidad. Y fuimos a Europa, nos encontramos un poco a lo
+01:28:59.840 mismo. Hay que decir que sí que hubieron fondos en España y el que creyeron en en
+01:29:05.159 en nosotros, eh, no grandes, me refiero, no de liderar, pero sí de acompañar y
+01:29:10.400 que fueron de esto siempre hay de acompañar. Sí, pero pero es que eso se va de liderar,
+01:29:15.440 sí, pero de acompañar tampoco. Te creas que había mucho, pero hubieron
+01:29:20.600 cuando tienes un líder de una ronda tienes una compañía. Sí, estoy de acuerdo. Y luego en Europa
+01:29:27.480 tuvimos un montón de investment comites, nada, no salía. Sí, sí. Y voleas San Francisco y
+01:29:35.199 aterricé un miércoles. Fuiste físicamente. Sí, sí. Ya tenía, ya había abierto conversaciones, etcétera. Ya tenía cosas
+01:29:41.639 aterrizadas. Yo aterricé un miércoles y el jueves tenía un transit ya.
+01:29:47.320 Eh, literal, el mindset es otro ahí, ¿no? Literal, pero esto es así, eh, eh, y de
+01:29:52.560 repente toda Europa me vuelve a llamar. Sí, claro, claro. Que es tremendo, ¿eh?
+01:29:57.920 Y luego hicimos eh quemamos muy poco porque no somos una intensa y ya está. Y luego al final del
+01:30:06.679 eh Y luego eso la ronda de de cinco. De cinco, sí. de 5 millones de dólares
+01:30:12.080 en que no en euros son menos a mitad del año pasado. Sí, exactamente, que se anunciaron en diciembre.
+01:30:17.840 Vale. Estuvimos un poco callados tirando y probando muchas cosas y luego ya
+01:30:23.320 encontramos el producto al final del año pasado. Es que es eso, eh, al final del año pasado empezamos a tener intuición
+01:30:29.080 porque fuimos a preproducto o se invirtieron 5 millones. Sí, exactamente. Pero porque es que hay
+01:30:35.000 que tener en cuenta, yo no, pero hay que tener en cuenta también quién quién es es quién es Manu. Es que Manu,
+01:30:43.520 ya Manu tiene mucho prestes, no solo prestigio, que es que el tío sabe, o
+01:30:48.800 sea, y esto lo hicisteis a una valoración de 20 pre o 25 post por ahí. Sí, de ese
+01:30:54.719 palo, ese palo. Y luego ya eh ahora no buscábamos ronda
+01:31:00.960 como tal ahora mismo, o sea, porque ya estamos una buena situación, lo estábamos hablando, vamos, no vamos, vamos, no vamos a a la parte de la de la
+01:31:07.880 ronda y persiguió Peter y Peter fue uno de los fondos que es nuestro war member,
+01:31:13.159 es casualmente el que ha liderado la ronda. Sí, Peter creando la la liderado junto
+01:31:18.280 con Forge Point Capitán, ¿vale? eh y que es un fondo de ciberseguridad que
+01:31:26.000 tiene relación con bancos y demás y y bueno y y NFX y Village Global, que
+01:31:32.400 son los de la presid han hecho han hecho la prorrata. Exactamente.
+01:31:38.760 Y eso ha montado el y eso ha sido esto. Pero no buscamos y la segunda es de 25 millones de euros.
+01:31:43.920 Sí. Eh, no, dólares, dólares, dólares, dólares. Ah, y
+01:31:49.119 y eso es una valoración de más de 100. Ahora van los tiros, pero no es
+01:31:54.800 prerevenue, ya no es ahora ya es con validación de los buyers, con un pipeline realista, ah, muy realista y y
+01:32:04.600 realmente el es un bet en la ejecución, te diría. O sea, ahora yo siempre se lo
+01:32:09.719 digo al equipo, depende de nosotros, eh, y depende de muchas otras cosas, ¿no?
+01:32:14.760 Del mercado, de tal, pero tenemos realmente depende de lo bien que lo podamos hacer y es muy difícil. O sea,
+01:32:20.800 ahora para mí, por eso cuando la gente te felicita, [ __ ] tío, 25 y digo, "No,
+01:32:26.920 tío, felicidades, ¿de qué? No, no, que lo que viene por delante, eh, [ __ ]
+01:32:33.440 eso es algo que yo veo mucho. A mí me pasa lo mismo, eh, cuando la gente te felicita por una ronda y dices, "No, no, de momento lo único que celebro
+01:32:39.600 es que me he diluido." Exactamente. Que me he diluido y que tengo más presión y tengo que hacer delivery y que y que tengo que correr.
+01:32:46.199 E, pero lo vamos a hacer. Yo, o sea, tenemos muchísima convicción de que el
+01:32:51.480 camino que estamos cogiendo es el correcto. Ah, y al mismo tiempo. ¿Te imaginas del futuro? Perdona que te interrumpa. ¿Te imaginas el futuro e
+01:32:58.280 como un sistema operativo, ¿qué significa? ¿Puedes desarrollar un poco más esta visión? O sea, que un sistema operativo basado en IA, o sea, no hay no
+01:33:05.960 hay el sistema operativo, no hay los ordenadores tal y como los entendemos a día de hoy en el futuro. ¿Qué te imaginas? Yo me imagino que tengo puedo
+01:33:12.320 tener un dispositivo que no visualizo todavía a día de hoy, pero que los programas se construyeron de fly,
+01:33:19.719 o sea, todo se hace, la UI con la que yo interactúo se hace onde fly, no quiere
+01:33:25.119 decir que sea distinta cada vez que la utilizo, quiero decir que se hace onde fly porque reacciona al entorno, por ejemplo, y se me va adaptando a lo que
+01:33:32.960 tengo, donde las bases de datos eh forman parte del contexto de un modelo porque no me hace falta porque tienen
+01:33:39.320 trillones de de ventanas de contexto y donde al final todos los sistemas tienen
+01:33:46.000 una parte siguen seguimos teniendo un legacy, digamos, de de del que queremos
+01:33:51.080 tener porque hace falta, ¿no? Hay que poner algunos tipos, pero todo lo que tiene que ver con la interacción con el
+01:33:56.880 humano es muchísimo más dinámico. Ah, yo creo que la revolución de la IA está
+01:34:02.920 en cómo interactúan los humanos con la tecnología. Eso es lo que yo creo que va lo que lo cambia. No va solo la
+01:34:08.480 inteligencia, es como va a cambiar a forma la en que nosotros interactuamos con la tecnología y eso si eso es muy
+01:34:15.080 profundo filosoficamente porque ahora hemos estar limitados a las manos y a la
+01:34:20.239 boca principalmente y incluso al habla y no tanto porque Siri tampoco nos hacía mucho caso. Y ahora cada vez más vamos a
+01:34:26.800 ir saltando capas a y vamos a a encontrar nuevas formas de de
+01:34:34.040 interactuar con la tecnología, que para mí es casi con la realidad, ¿eh? Y yo creo que eso va a provocar
+01:34:41.239 y eso en el fondo yo creo que va a ser el concepto de sistema operativo, que es
+01:34:46.280 un sistema operativo como definición. Al final esto viene de mano de cómo lo ve, eh,
+01:34:52.480 ¿cómo tú ves defensivilidad de todo esto? Porque ahora yo veo que cada estos players grandes, Gemini, hay un ejemplo,
+01:34:58.679 un experimento con generar código on the fly, como todos los UI cloud, lo mismo,
+01:35:04.280 open aer con, mira, no es así, pero es es un poco el mismo concepto. Vamos a generar ah estos widgets on the fly y
+01:35:12.600 todo. Claudia ha hecho eso, o sea, Claudia acaba sacar una herramienta que se llama imagin Exacto, exacto, exacto. Por eso es lo mismo que al final ellos también juegan
+01:35:20.000 y yendo esto un poco a esta dirección por eso y también con el hardware, ¿no? Open dice que quiere montar
+01:35:26.159 o sea, pero si te refieres a defensividad de Maisa o defensividad de Exacto, exact porque mañana imaginamos open a clo.
+01:35:33.320 Yo lo que os he dicho es ya no es la visión solo del sistema operativo, es como creo que va a ir cambiando eh eh a nivel de sea quien sea que lo haga, ¿no?
+01:35:39.239 Sí. Eh, o sea, nuestra defensibilidad se basa en que a día de hoy somos los
+01:35:44.719 únicos que sabemos que qué cuesta llevar a producción varios casos de uso de la
+01:35:51.119 magnitud que estamos haciendo. Hablamos de casos de uso que son 40,000 horas al año de humanos, de gente de que vale,
+01:35:56.679 que cobra 40,000 € con equipos de 70. O sea, y el coste es que los números les
+01:36:03.239 salen muy bien. Somos muy baratos en este momento, eh, para quien nos contrata.
+01:36:08.560 Ah, parece que no, eh, pero si haces los números salen. Ahora bien, la defensibilidad está en literalmente eh
+01:36:16.520 seguir aumentando la instancia que tenemos de aprendizaje en el mercado, seguir apostando por la convicción que tenemos en esta dirección. Si el mercado
+01:36:22.320 nos dice que vamos en otra dirección, ser los capaces de movernos si hace falta a nivel tecnológico. De momento
+01:36:28.520 nos está yendo bien por esta dirección. Hay mucho trabajo hacer en esta dirección. El tema es que haya una
+01:36:34.199 innovación, un un que salte la capa de abstracción de la tarea en la que estáis trabajando vosotros, porque pues
+01:36:40.280 literalmente estáis yendo a tareas que ya están automatizadas con RPA. No, no, no, no, no, no. Estamos yendo a lo
+01:36:46.480 que RPA no ha llegado, que es el 90%. Vale, pero estáis dentro de un de un proceso que tiene claro el input y el
+01:36:53.560 output, vamos a decir, ¿no? Un sub subproceso dentro de un negocio, pero tú no le puedes pedir a un negocio que
+01:37:00.239 automatización de créditos de la aceptación de créditos de coche no es un
+01:37:06.560 subproceso. Tiene muchos subprocesos que son tareas que hace son los pasos que
+01:37:11.600 estás viendo que el proceso hace. Tiene que leer la documentación y buscar en las nef si es un moroso o no. tiene que
+01:37:18.000 hacer tiene un montón de cosas, pero no es son procesos pequeños, son en toend, son hay un humano que está cobrando x
+01:37:25.600 tanto al mes por hacer esa tarea. Bueno, un humano no, o sea, un departamento de riesgos de un banco
+01:37:31.760 también es uno de los de es uno de los focos que tiene eh centenares de humanos o miles de humanos. Los productos financieros están
+01:37:39.239 a día de hoy funcionando y tienen ese latency porque están operados por humanos que aunque puedan tardar lo
+01:37:44.920 mismo que la IA, no se ponen a hacer la tarea de forma inmediata. Eh, y siguen
+01:37:51.159 formando una parte de la ecuación. Es mejor [ __ ] a su mano que a lo mejor ahora yo ya estoy haciendo una tarea que ya conoce todo el bango y enfocarlo en
+01:37:57.440 hacer la otra parte que todavía no no llega a la ella y así y así gradualmente, ¿vale? Ah, pero no son pequeños eh
+01:38:04.560 procesos ni son RPAs. De hecho, nosotros no atacamos a RPA directamente en el sentido de si
+01:38:11.239 tú ya tienes RPA, déjatelo, está funcionando, para qué lo vas a quitar. lo que funciona no lo toques, ¿no? Y
+01:38:16.280 luego ya cuando ya esté metido y ya tengas éxito, pues lo mismo ese invoice processing que tienes en un 60 sí que te
+01:38:22.440 lo puedes quitar más rápido de lo que parece con un con un worker porque se crean superrápido. Hombre, si funciona mejor en cuanto a
+01:38:28.080 calidad del resultado, sí, y me bajas el coste, sí, pues claro que lo voy a hacer, ¿no? Pero
+01:38:34.400 sí, pero nosotros entramos, es muy fácil de entender, o sea, sí, sí, lo sé, pero nosotros entramos a
+01:38:39.760 lo que no pueden hacer, que es todavía más, ya, porque luego hay mucho que entender las Enterprise de quién y quién lleva esa
+01:38:46.280 esa cuenta y entréis entráis en los bancos por por dónde, por el CEO o por el el técnico
+01:38:53.719 en caso de bancos, eh, nosotros tienes no puedes entrar por un solo sitio, tienes que entrar por muchos y al final
+01:39:00.280 no hay un solo Bayer en en enterprise, no te compra una persona, te compra un equipo y te compra una una visión de la
+01:39:07.800 empresa, digamos. Entonces, eso va desde arriba dirección, eh, que equipos de de
+01:39:14.880 IA, te diría. Ah, pero luego ya cuando vas hacia abajo nos separamos de esa parte de IA, que se vuelve un challenge
+01:39:21.199 porque al fin y al cabo no ya hemos tenido malas experiencias ahí y nos vamos a la parte más de RPA,
+01:39:27.280 processation, automatización, malas experiencias con las áreas de innovación. Sí, algunas veces sí hemos
+01:39:35.239 tenido buenísimas y no tan buenas porque no con demasiada opinión tiene
+01:39:40.280 demasiada opinión con las no con las series de innovación con las áreas de de IA, incluso algunas
+01:39:46.520 veces tecnología, porque se ven amenazadas, porque ha pasado, o sea, y porque aunque
+01:39:52.560 nosotros vayamos con otro discurso, vamos con otro discurso y ellos llevan invertir un año, entonces de una forma
+01:39:58.080 indirecta estás diciendo, lo ven como competencia. Cuando yo muchas veces digo, "Tío, sigue haciendo tus chatbots
+01:40:03.119 y utiliza lo mío como API si quieres para tus chatbots o para lo que estés montando." Si, pero la gente
+01:40:10.679 la IAP desde fuera parece muy fácil. [ __ ] si es prontinir es muy fácil y desde fuera parece muy
+01:40:17.040 fácil y pero cuando te vas metiendo vas viendo que de fácil no tiene nada y
+01:40:22.400 entonces con la cabeza, ¿no? Totalmente, totalmente. Start hard to master o whatever.
+01:40:29.280 Eso choca mucho a las empresas y te encuentras una resistencia, pero que es normal. Eh, yo también lo yo
+01:40:36.280 también me resisto a que me pongan otros puntos de vista. Intento tener la mente muy abierta y nosotros hemos aprendido
+01:40:42.159 mucho por el camino y a lo mismo hablamos en un año y te digo, "Oye, ¿cómo podía decir eso?"
+01:40:48.760 Mola tener la mente abierta. Hablando de mente abierta, AGI.
+01:40:54.760 Eh, mira, mi opinión de la AGI es que en cierta manera ya está aquí. Ah, solo que
+01:41:01.520 la estamos conceptualizando. ¿A qué me refiero con eso? Yo no estoy de acuerdo que la AGI vaya a ser un monolito, que
+01:41:08.520 quiere decir que vaya a ser un solo modelo, al igual que nosotros no somos un solo una sola unidad, somos un
+01:41:14.679 sistema. Yo creo que la va a ser un sistema porque si tú te planteas un thought
+01:41:20.679 process, o sea, un pensamiento, tienes la y le das un ordenador,
+01:41:26.360 es más todavía. ¿Cuál es el límite de que tienes? No.
+01:41:32.920 ¿Cuál es tu definición de J? Hay muchas últimamente. Es que para mí em
+01:41:40.520 o de Asi, lo sé, lo sé. O sea, el ACI, ¿no? Que es como lo siguiente, que es es como decir
+01:41:46.719 Dios sin decir Dios es como ellos lo plantean, casi como si fuera un Dios sin decirlo por no es como una religión, ya se está haciendo religión.
+01:41:54.199 Yo la lo veo como un micelio. E, ¿qué es esto? El micelio es la fuente de
+01:42:00.440 funguis, de fungos de que existe debajo de los bosques, que como nodos no son
+01:42:05.960 inteligentes, pero como conjuntos se reparten los nutrientes y son capaces de avisar la otra parte del bosque de que
+01:42:11.239 hay un incendio y de que tampoco pueden moverse, ¿no? Pero de para repartir recursos y demás. E pero yo lo veo un
+01:42:20.840 poco como Micelio, por eso yo pienso que si esto es un poco si tú te pones a
+01:42:26.560 reflexionar a día de hoy cómo la gente ya cómo concibe su opinión y su forma de
+01:42:32.520 entender el mundo, ya está más influenciado por la IA de lo que creen porque consumen contenido de TikTok,
+01:42:38.760 YouTube y otras redes sociales que ya se lo está recomiendo una es un nodo. Ya
+01:42:44.320 no, ellos ya no son los que deciden qué consumir. El lo que deciden que consumir
+01:42:49.400 ya les está viniendo por distintas fuentes con recomendaciones de sistemas de que no están interconectados.
+01:42:56.000 Bueno, luego el siguiente punto ya no solo a la hora de también comunicar ya la IA está
+01:43:02.840 empezando a jugar un papel clave. ¿Cuántos correos escribimos eh eh de verdad nosotros? Pues yo no todos. Yo a
+01:43:10.360 veces eh porque no me expreso tal, digo, "Bu, ¿cómo digo esto en inglés?" Tal, pues lo
+01:43:15.920 cambio. Pero ya está jugando un papel ahí y encima ahora que viene más la generación de contenido. Entonces ya está, mi
+01:43:21.920 opinión ya está influenciando de alguna forma u otra una inteligencia que no es humana que no se puede comparar o LMS es
+01:43:27.840 otro tipo de de al igual que como digo lo de los fungis influenciar en cómo nosotros vemos el
+01:43:35.960 mundo y lo y lo entendemos. Yo creo que no va a haber un día en el que digan, "Ha nacido la AGI." Yo veo la
+01:43:42.280 AGI como internet. ¿Cuándo nació internet? Bueno, en la WW con Astral, o sea,
+01:43:50.159 al panet militarmente. O nació cuando salió la World W o cuando llegó Correo o
+01:43:55.239 cuando nacieron los móviles y las redes sociales. Realmente fue una evolución del concepto de internet. Yo le y lo veo
+01:44:01.040 como algo similar. ya nos está afectando. O sea, al final lo llevamos mucho al concepto antropomórfico de tener
+01:44:08.639 conciencia, no tener agencia, tener capacidad de decisión, eh tener capacidad de proyección a
+01:44:14.960 futuro, lo que nos hace humanos, ¿no? Sí, pero yo lo veo como que estamos
+01:44:20.280 accediendo a una nueva dimensión de información o de entender la información y que nos va a hacer acelerar en el tiempo. Vamos a hacer progresos de
+01:44:26.960 10,000 años en un año. Ah, y cada vez será más rápido. haremos en un año lo que tardaríamos 10.000 y así te hablo en
+01:44:34.360 los próximos 5 o 10 años. Yo es que veo un crecimiento exponencial bestial y ese concepto de GI no lo veo
+01:44:41.599 como, insisto, un monolito, lo veo como el concepto de internet, pero ahora en otra dimensión más amplia de
+01:44:46.880 información. Por eso yo digo que no es que ya esté aquí, pero sí es esa broma
+01:44:51.920 de Can you Field y AGI que dicen los de San Francisco, yo creo que van en esa dirección. Ah,
+01:44:58.000 sí, pero yo también estoy pensando que al final como internet hay un miles y miles de sitios web, pero hay grandes.
+01:45:04.480 Exactamente. Y lo mismo aquí con con modelos. Puede ser que vamos a tener un montón de pequeños o este red, pero van a ser dos
+01:45:11.560 o tres junt igual cuánto son modelos grandes que van a ser como orquestradores de todo de esto. Por eso
+01:45:18.719 al final stage es son modelos esos grandes o es conjunto de todos. Pero si tú conectas dos modelos son super en
+01:45:25.760 plan o es un modelo con un hamiento col vamos a aquí. Claro, claro. Lo lo entiendo yo. Ahí es
+01:45:33.599 donde veo estoy de acuerdo, eh. Yo yo estoy de acuerdo. Yo no he dicho que vaya a ser superdocratizado y en ese
+01:45:39.360 sentido. Yo creo que van a haber monolitos a que van a haber algunos grandes, pero no
+01:45:47.880 visualizo el GPT50 HGI. Eh, podremos considerarlo AGI, eh,
+01:45:57.080 pero para mí formará parte de un sistema. Si es que ya son sistemas, es que encima abiertos o cerrados, ¿tiene acceso todo
+01:46:03.400 el mundo o son ventajas competitivas de países que usan contra otros? Para mí son van a haber ventajas
+01:46:10.440 competitivas y van a haber cerrados seguro. Si ya ya está pasando. E y y en Europa, por
+01:46:17.000 ejemplo, también tú tienes acceso a Sorados. A Sora 2. Yo no. Yo sí porque he utilizado
+01:46:23.760 no la App Store americana. Ah, la App Store americana. Ah, bueno, entonces sí, pero desde España no he hecho ningún hacking de nada.
+01:46:29.320 El español medio eh, no puede, eh, y ahora es una tontería, pero el día
+01:46:35.520 de mañana no sea tan tontería. Si lo que te está cayendo es algo que te es capaz de hacer tal, no es tan tonto,
+01:46:41.159 no es tan tontería. Yo creo que sigue haber mucho privado, pero bueno, eso es lo que pienso de la
+01:46:46.560 eh, me puedo equivocar, pero lo veo como otra nueva dimensión de información.
+01:46:52.840 David, tú eres mago. Sí. nos has hecho un truco de magia hoy.
+01:46:59.119 ¿Te imaginas? Yo creo que yo creo que hoy en cierta manera os he contado historia.
+01:47:05.880 Sí, he intentado. ¿Sigues haciendo trucos de magia? Sí, sí, sí, de verdad. De hecho, se lo
+01:47:12.400 hizo en fondo. ¿Sí o no? El que invirtió. Peter, ¿no? Bueno, Peter también. Sí, sí. Una
+01:47:17.520 cena también hecho. Sí, pero lo hago con mis amigos. Si me lo suelen pedir no me sale, pero si me nace sí que sí que
+01:47:24.199 desde que soy niño tengo como 1000 barajas, fue lo primero que me gusta un montón,
+01:47:29.800 pero sí, yo hoy un poco que ahora yo creo que estamos ya terminando, ¿no? Vosotros, o sea, yo también para que se entienda,
+01:47:36.639 ¿no? Nosotros la posición de Maya incluso la mía. Yo
+01:47:41.800 todo lo que digo asumo que puede estar mal y me gusta el challenge y me gusta entrar en esas situaciones y yo entiendo
+01:47:47.719 que lo que digo causa ruido porque es contrario y es
+01:47:53.119 es que todo es contrario ahora mismo. O sea, yo no creo que haya una una voz tan fuerte en ninguna dirección.
+01:47:59.119 O sea, es es todo el mundo son aguas que que son o arenas movedizas, no sé qué
+01:48:05.199 metáfora usar, pero se está todo moviendo todo el rato, ¿sabes? Eh, y está bien, está bien que sea así.
+01:48:11.520 O sea, esto es como, o sea, esto es que hay innovación, ¿no? Sí. Eh, que hay por, o sea, a mí me parece muy interesante el espacio actual,
+01:48:18.760 eh, pero no creo que sea especialmente contraria en lo que dices. O sea, yo
+01:48:24.920 celebro el eliminar estos warflows de la muerte, ¿sí? Porque no soy muy fan. No, no me imagino
+01:48:31.960 que el que el usuario eh humano eh o sea, no no programador,
+01:48:35.000 No text
+01:48:40.119 no informático, que no entiende el sistema un sistema de datos relacional, etcétera, sea capaz de montar Worflow
+01:48:46.320 ahora porque sí, no, no, no, o sea, no tiene ningún sentido esto. Nosotros en Factorial el approach que
+01:48:51.719 estamos haciendo es parecido en ese sentido, eh, o sea, es no queremos
+01:48:56.840 trabajar home workflows. Luego habrá y que te creo los workflows, que eso ya pasa pues que 8N me esquive el flujo en
+01:49:04.080 8n. El problema que viene ahí es que eso tiene que ser dinámico. Sí, es el problema. E por eso nosotros
+01:49:11.440 estamos muy tranquilos con lo de Open AI, ¿eh? Y creemos que hay un mercado, que por eso existen 8N y vale un billón.
+01:49:18.840 Y estamos muy entusiasmados por lo que queda por delante, aunque llevemos poco
+01:49:24.040 hecho, como es tan distinto, ya aporta valor, pero falta. Mhm. Muchísimo.
+01:49:29.719 Muy bien. Oye, pues David, muchísimas gracias. Nada, ha sido Te seguiremos sin duda, ¿eh? Seguiremos
+01:49:37.000 vuestros progresos porque tiene muy buena pinta lo que estáis haciendo. Gracias, Ilia, como siempre y con los
+01:49:43.599 demás nos vemos la semana que viene.
