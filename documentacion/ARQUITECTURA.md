@@ -1,7 +1,7 @@
 # 🏗️ NOVA - Arquitectura del Sistema
 
-**Última actualización**: 7 Noviembre 2025
-**Estado**: Phase 1 completo + Phase 2 en progreso
+**Última actualización**: 11 Noviembre 2025
+**Estado**: Phase 1 completo + Phase 2 funcional
 
 ---
 
@@ -24,15 +24,18 @@
 - ✅ Deployment en Railway
 - ✅ E2B custom template (cold start optimizado)
 
-### **Phase 2: AI Code Generation** 🟡 **EN PROGRESO**
+### **Phase 2: AI Code Generation** 🟢 **FUNCIONAL**
 - ✅ CachedExecutor implementado (genera código con OpenAI GPT-4o-mini)
 - ✅ KnowledgeManager (context-aware prompts)
 - ✅ Context validation y JSON serialization
 - ✅ Error retry con feedback (max 3 intentos)
+- ✅ **Smart validation** (permite campos actualizados, booleanos, números)
+- ✅ **Full traceability** (guarda código generado incluso si falla)
+- ✅ **Error history** (todos los intentos guardados en chain_of_work)
 - ✅ Circuit breaker para E2B
-- ⚠️ Tests manuales pasando
-- ❌ Cache de código (pendiente)
-- ❌ Semantic cache con embeddings (pendiente)
+- ✅ Tests automatizados pasando
+- ❌ Cache de código (pendiente Phase 3)
+- ❌ Semantic cache con embeddings (pendiente Phase 3)
 
 ---
 
@@ -331,6 +334,7 @@ Sistema multi-tenant para gestionar credenciales por cliente.
 
 ### Chain of Work Entry (PostgreSQL)
 
+**Ejemplo: Ejecución exitosa**
 ```json
 {
   "id": 123,
@@ -343,15 +347,62 @@ Sistema multi-tenant para gestionar credenciales por cliente.
   "execution_time_ms": 2340,
   "status": "success",
   "ai_metadata": {
-    "executor": "cached",
-    "prompt": "Decode PDF from base64...",
-    "tokens_used": 450,
-    "estimated_cost": 0.000225,
     "model": "gpt-4o-mini",
-    "attempts": 1
+    "prompt": "Decode PDF from base64...",
+    "generated_code": "import base64\nimport fitz\n...",
+    "tokens_input": 7500,
+    "tokens_output": 450,
+    "cost_usd": 0.001125,
+    "attempts": 1,
+    "cache_hit": false
   }
 }
 ```
+
+**Ejemplo: Ejecución fallida tras 3 intentos** (⭐ Nueva funcionalidad de debugging)
+```json
+{
+  "id": 124,
+  "execution_id": 42,
+  "node_id": "extract_text_from_pdf",
+  "node_type": "action",
+  "code_executed": "import fitz\nimport base64\n# Código generado en intento 3...",
+  "input_context": {"pdf_data": "JVBERi0...", "recommended_method": "ocr"},
+  "output_result": {"pdf_data": "JVBERi0...", "recommended_method": "ocr"},
+  "execution_time_ms": 0,
+  "status": "failed",
+  "error_message": "Failed after 3 attempts. Last error: ValidationError(...)",
+  "ai_metadata": {
+    "model": "gpt-4o-mini",
+    "attempts": 3,
+    "status": "failed_after_retries",
+    "final_error": "ValidationError: Code executed but produced EMPTY output",
+    "all_attempts": [
+      {
+        "attempt": 1,
+        "code": "import fitz\nimport base64\n# Primera versión (sin conversión a imagen)...",
+        "error": "ValidationError: Code executed but produced EMPTY output"
+      },
+      {
+        "attempt": 2,
+        "code": "import fitz\nfrom PIL import Image\n# Segunda versión (timeout)...",
+        "error": "E2BTimeoutError: Execution exceeded 30s"
+      },
+      {
+        "attempt": 3,
+        "code": "import fitz\nimport easyocr\n# Tercera versión (con OCR)...",
+        "error": "CodeExecutionError: SyntaxError on line 15"
+      }
+    ]
+  }
+}
+```
+
+**Beneficios del debugging mejorado:**
+- ✅ **Visibilidad total**: Nunca se pierde código generado, incluso si falla
+- ✅ **Evolución del código**: Ver cómo la IA mejoró el código entre intentos
+- ✅ **Análisis de errores**: Identificar patrones de fallos para mejorar prompts
+- ✅ **Post-mortem debugging**: Reproducir y corregir fallos pasados
 
 ---
 
