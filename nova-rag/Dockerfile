@@ -12,12 +12,8 @@ COPY . .
 # Create directory for vector store (will use Railway volume if available)
 RUN mkdir -p /data/chroma_db
 
-# Expose port
-EXPOSE 8001
+# Expose port (Railway will set $PORT dynamically)
+EXPOSE 8000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-  CMD python -c "import requests; requests.get('http://localhost:8001/health')"
-
-# Run application
-CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8001"]
+# Run application (use shell form to expand $PORT)
+CMD uvicorn src.api.main:app --host 0.0.0.0 --port ${PORT:-8000}
