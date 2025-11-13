@@ -242,7 +242,9 @@ class DocumentLoader:
             >>> print(f"Loaded {len(all_docs)} total chunks")
         """
         if integrations_dir is None:
-            base_dir = Path(__file__).parent.parent.parent.parent
+            # __file__ is src/core/document_loader.py
+            # parent is src/core, parent.parent is src, parent.parent.parent is nova-rag root
+            base_dir = Path(__file__).parent.parent.parent
             integrations_dir = str(base_dir / "knowledge" / "integrations")
 
         integrations_path = Path(integrations_dir)
