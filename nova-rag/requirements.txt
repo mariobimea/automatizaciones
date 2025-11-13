@@ -1,0 +1,16 @@
+# NOVA RAG Microservice - Dependencies
+# Only RAG-specific dependencies (lightweight for fast deploys)
+
+# Web Framework
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+
+# Validation
+pydantic==2.9.2
+
+# Vector Store & RAG (Retrieval-Augmented Generation)
+chromadb==0.5.23
+sentence-transformers==3.3.1
+
+# Environment
+python-dotenv==1.0.1
