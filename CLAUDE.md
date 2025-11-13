@@ -289,6 +289,47 @@ When making new architectural decisions during development:
 
 ---
 
+## Recent Architectural Decisions
+
+### RAG System Architecture (2025-11-13)
+
+**Decision**: Removed local RAG/vector store from `/nova`, use only remote `nova-rag` service
+
+**Problem**:
+- Local ChromaDB vector store was duplicated (same docs in nova + nova-rag)
+- Vector store rebuild on every deploy → slow startup (30-60s)
+- Unnecessary memory consumption
+- Maintenance overhead (keep 2 systems in sync)
+
+**Options Considered**:
+1. **Keep both** (local + remote RAG)
+   - ❌ Complexity, duplication, inconsistency risk
+2. **Remove local RAG** (selected)
+   - ✅ Single source of truth
+   - ✅ Fast startup (<5s)
+   - ✅ Less memory, simpler code
+   - ⚠️ Hard dependency on nova-rag service
+
+**Implementation**:
+- Removed `/nova/src/core/ai/vector_store.py`
+- Removed `/nova/src/core/ai/document_loader.py`
+- Simplified `KnowledgeManager` to ONLY use `RAGClient`
+- Updated `tools.py` to use RAGClient
+- Added `/knowledge` to `.gitignore` (docs managed by nova-rag)
+
+**Trade-offs Accepted**:
+- ⚠️ Hard dependency: If nova-rag is down, CachedExecutor cannot generate code
+- ✅ Mitigation: Circuit breaker in RAGClient, clear error messages
+- ✅ Development: Run nova-rag locally (simple: `cd nova-rag && uvicorn src.main:app`)
+
+**Benefits Realized**:
+- ✅ Startup time: 30-60s → <5s
+- ✅ Memory usage: ~500MB → ~200MB (no ChromaDB)
+- ✅ Code simplicity: -300 lines of unused code
+- ✅ Single source of truth: All docs managed by nova-rag
+
+---
+
 ## Example Interaction Patterns
 
 ### Good Pattern ✅

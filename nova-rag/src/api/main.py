@@ -237,19 +237,28 @@ def query_rag(request: QueryRequest):
 
     try:
         # Query vector store
+        # Extract filter_source and filter_topic from filters dict
+        filter_source = None
+        filter_topic = None
+        if request.filters:
+            filter_source = request.filters.get('source')
+            filter_topic = request.filters.get('topic')
+
         results = vector_store.query(
             query_text=request.query,
             top_k=request.top_k,
-            filters=request.filters
+            filter_source=filter_source,
+            filter_topic=filter_topic
         )
 
         # Convert to response format
+        # Convert distance to score: lower distance = higher score
         query_results = [
             QueryResult(
                 text=doc['text'],
                 source=doc['source'],
                 topic=doc['topic'],
-                score=doc.get('score', 0.0)
+                score=1.0 - min(doc.get('distance', 0.0), 1.0)  # Normalize to 0-1
             )
             for doc in results
         ]
