@@ -158,18 +158,18 @@ async def load_documentation():
         all_chunks.extend(pymupdf_chunks)
         logger.info(f"  ✓ Loaded {len(pymupdf_chunks)} chunks from PyMuPDF")
 
-    # Load EasyOCR docs
-    easyocr_path = base_dir / "knowledge" / "official_docs" / "easyocr_official.md"
+    # Load Google Cloud Vision docs
+    google_vision_path = base_dir / "knowledge" / "official_docs" / "google_vision_ocr.md"
 
-    if easyocr_path.exists():
-        logger.info("Loading EasyOCR documentation...")
-        easyocr_chunks = loader.load_markdown_file(
-            file_path=str(easyocr_path),
-            source="easyocr",
+    if google_vision_path.exists():
+        logger.info("Loading Google Cloud Vision documentation...")
+        google_vision_chunks = loader.load_markdown_file(
+            file_path=str(google_vision_path),
+            source="google_vision",
             topic="official"
         )
-        all_chunks.extend(easyocr_chunks)
-        logger.info(f"  ✓ Loaded {len(easyocr_chunks)} chunks from EasyOCR")
+        all_chunks.extend(google_vision_chunks)
+        logger.info(f"  ✓ Loaded {len(google_vision_chunks)} chunks from Google Cloud Vision")
 
     # Add to vector store
     logger.info(f"Adding {len(all_chunks)} total chunks to vector store...")
