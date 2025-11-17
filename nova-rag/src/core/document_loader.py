@@ -28,15 +28,15 @@ class DocumentLoader:
 
     def __init__(
         self,
-        chunk_size: int = 700,
-        chunk_overlap: int = 100
+        chunk_size: int = 2000,
+        chunk_overlap: int = 200
     ):
         """
         Initialize document loader.
 
         Args:
-            chunk_size: Target size for each chunk (chars)
-            chunk_overlap: Overlap between chunks (chars)
+            chunk_size: Target size for each chunk (chars) - increased to 2000 to preserve complete code examples
+            chunk_overlap: Overlap between chunks (chars) - increased to 200 for better context preservation
         """
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
@@ -284,8 +284,8 @@ if __name__ == "__main__":
     # Setup logging
     logging.basicConfig(level=logging.INFO)
 
-    # Initialize loader
-    loader = DocumentLoader(chunk_size=700, chunk_overlap=100)
+    # Initialize loader (using default chunk_size=2000, chunk_overlap=200)
+    loader = DocumentLoader()
 
     # Load all integration docs
     docs = loader.load_integration_docs()
