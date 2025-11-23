@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.vector_store import VectorStore
 from core.document_loader import DocumentLoader
+from core.code_cache_service import CodeCacheService
 
 # Setup logging
 logging.basicConfig(
@@ -34,8 +35,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Global vector store instance
+# Global instances
 vector_store: Optional[VectorStore] = None
+code_cache_service: Optional[CodeCacheService] = None
 store_ready: bool = False
 
 
@@ -88,8 +90,8 @@ class HealthResponse(BaseModel):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Load vector store on startup."""
-    global vector_store, store_ready
+    """Load vector store and code cache on startup."""
+    global vector_store, code_cache_service, store_ready
 
     logger.info("=" * 60)
     logger.info("🚀 NOVA RAG Service Starting...")
@@ -99,6 +101,11 @@ async def lifespan(app: FastAPI):
         # Initialize vector store
         logger.info("Initializing vector store...")
         vector_store = VectorStore()
+
+        # Initialize code cache service (reuse same ChromaDB client)
+        logger.info("Initializing code cache service...")
+        code_cache_service = CodeCacheService(client=vector_store.client)
+        logger.info("✓ Code cache service initialized")
 
         # Check if already loaded
         stats = vector_store.get_stats()
@@ -111,6 +118,10 @@ async def lifespan(app: FastAPI):
             await load_documentation()
             logger.info("✓ Documentation loaded successfully")
             store_ready = True
+
+        # Log code cache stats
+        cache_stats = code_cache_service.get_stats()
+        logger.info(f"✓ Code cache: {cache_stats['total_codes']} cached codes")
 
         logger.info("=" * 60)
         logger.info("✅ RAG Service Ready!")
@@ -187,6 +198,10 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan
 )
+
+# Include routers
+from .routes.code import router as code_router
+app.include_router(code_router)
 
 
 # === Endpoints ===
