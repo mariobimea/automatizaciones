@@ -26,6 +26,7 @@ class CodeSearchRequest(BaseModel):
     query: str = Field(..., min_length=1, description="Search query (task + schema + insights)")
     threshold: float = Field(0.85, ge=0.0, le=1.0, description="Minimum similarity score")
     top_k: int = Field(5, ge=1, le=20, description="Maximum results to return")
+    available_keys: Optional[List[str]] = Field(None, description="Keys available in current context (for filtering)")
 
 
 class CodeMatch(BaseModel):
@@ -114,7 +115,8 @@ def search_code(request: CodeSearchRequest):
         matches = code_cache_service.search_code(
             query=request.query,
             threshold=request.threshold,
-            top_k=request.top_k
+            top_k=request.top_k,
+            available_keys=request.available_keys
         )
 
         # Convert to response format

@@ -174,6 +174,10 @@ class CodeCacheService:
             # Generate unique ID
             doc_id = f"code_{self.collection.count()}_{datetime.now().timestamp()}"
 
+            # Extract required keys from input_schema
+            input_schema = document.get("input_schema", {})
+            required_keys = sorted(input_schema.keys()) if input_schema else []
+
             # Prepare metadata (flatten for ChromaDB)
             metadata = {
                 "node_action": document.get("node_action", "unknown"),
@@ -184,7 +188,9 @@ class CodeCacheService:
                 # Store complex fields as JSON strings
                 "input_schema": str(document.get("input_schema", {})),
                 "insights": ",".join(document.get("insights", [])),
-                "config": str(document.get("config", {}))
+                "config": str(document.get("config", {})),
+                # Store required keys for filtering during search
+                "required_keys": ",".join(required_keys)
             }
 
             # Add to collection
@@ -215,7 +221,8 @@ class CodeCacheService:
         self,
         query: str,
         threshold: float = 0.85,
-        top_k: int = 5
+        top_k: int = 5,
+        available_keys: Optional[List[str]] = None
     ) -> List[Dict]:
         """
         Search for similar code in semantic cache.
@@ -224,6 +231,7 @@ class CodeCacheService:
             query: Search query (task description + input schema + insights)
             threshold: Minimum similarity score (0-1, default: 0.85)
             top_k: Maximum number of results (default: 5)
+            available_keys: List of keys available in current context (for filtering)
 
         Returns:
             List of matching code documents with scores, sorted by similarity
@@ -251,15 +259,18 @@ class CodeCacheService:
                 convert_to_numpy=True
             ).tolist()[0]
 
-            # Query collection
+            # Query collection (fetch more candidates if filtering by keys)
+            fetch_count = top_k * 3 if available_keys else top_k
+
             results = self.collection.query(
                 query_embeddings=[query_embedding],
-                n_results=top_k,
+                n_results=fetch_count,
                 include=['documents', 'metadatas', 'distances']
             )
 
             # Format and filter results
             matches = []
+            available_keys_set = set(available_keys) if available_keys else None
 
             for i in range(len(results['documents'][0])):
                 distance = results['distances'][0][i]
@@ -273,6 +284,17 @@ class CodeCacheService:
                     continue
 
                 metadata = results['metadatas'][0][i]
+
+                # Filter by required keys (if available_keys provided)
+                if available_keys_set is not None:
+                    required_keys_str = metadata.get("required_keys", "")
+                    if required_keys_str:
+                        required_keys_set = set(required_keys_str.split(","))
+
+                        # Skip if code requires keys we don't have
+                        if not required_keys_set.issubset(available_keys_set):
+                            logger.debug(f"Skipping code requiring {required_keys_set} (available: {available_keys_set})")
+                            continue
 
                 # Parse complex fields back from strings
                 import ast
@@ -304,7 +326,11 @@ class CodeCacheService:
                     }
                 })
 
-            logger.info(f"Found {len(matches)} matches above threshold {threshold} (from {top_k} candidates)")
+                # Stop if we have enough matches
+                if len(matches) >= top_k:
+                    break
+
+            logger.info(f"Found {len(matches)} compatible matches above threshold {threshold} (from {fetch_count} candidates)")
 
             return matches
 
