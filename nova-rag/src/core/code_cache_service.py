@@ -286,16 +286,11 @@ class CodeCacheService:
 
                 metadata = results['metadatas'][0][i]
 
-                # Filter by required keys (if available_keys provided)
-                if available_keys_set is not None:
-                    required_keys_str = metadata.get("required_keys", "")
-                    if required_keys_str:
-                        required_keys_set = set(required_keys_str.split(","))
-
-                        # Skip if code requires keys we don't have
-                        if not required_keys_set.issubset(available_keys_set):
-                            logger.debug(f"Skipping code requiring {required_keys_set} (available: {available_keys_set})")
-                            continue
+                # DON'T filter by required_keys here - let NOVA do the validation
+                # This filter was too strict and rejected valid codes
+                # Reason: required_keys extraction from code is not 100% accurate
+                #         (e.g., dynamic keys, conditional access, etc.)
+                # Let NOVA validate after retrieval with full context knowledge
 
                 # Parse complex fields back from strings
                 import ast
