@@ -363,7 +363,7 @@ class CodeCacheService:
 
         # Full input schema (structure signal) - no filtering
         if "input_schema" in document:
-            schema_text = json.dumps(document["input_schema"], indent=2)
+            schema_text = json.dumps(document["input_schema"], indent=2, sort_keys=True)
             parts.append(f"Input Schema:\n{schema_text}")
 
         # Note: insights are no longer included in semantic search
