@@ -219,3 +219,44 @@ def get_code_stats():
     except Exception as e:
         logger.error(f"Error getting code cache stats: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/clear")
+def clear_code_cache():
+    """
+    Clear all codes from semantic cache (admin operation).
+
+    WARNING: This is destructive and cannot be undone.
+    All cached code will be deleted.
+
+    Returns:
+        Confirmation message with count of deleted codes
+    """
+    # Import from main to access global instance
+    from ..main import code_cache_service
+
+    if not code_cache_service:
+        raise HTTPException(
+            status_code=503,
+            detail="Code cache service not initialized"
+        )
+
+    try:
+        # Get count before clearing
+        stats = code_cache_service.get_stats()
+        count_before = stats['total_codes']
+
+        # Clear cache
+        code_cache_service.clear()
+
+        logger.warning(f"Code cache cleared: {count_before} codes deleted")
+
+        return {
+            "success": True,
+            "message": f"Code cache cleared successfully",
+            "codes_deleted": count_before
+        }
+
+    except Exception as e:
+        logger.error(f"Error clearing code cache: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
