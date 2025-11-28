@@ -174,23 +174,24 @@ class CodeCacheService:
             # Generate unique ID
             doc_id = f"code_{self.collection.count()}_{datetime.now().timestamp()}"
 
-            # Extract required keys from input_schema
-            input_schema = document.get("input_schema", {})
-            required_keys = sorted(input_schema.keys()) if input_schema else []
+            # Extract required keys from metadata (passed from executor)
+            # These are the keys that the code ACTUALLY uses (extracted from code analysis)
+            metadata_dict = document.get("metadata", {})
+            required_keys = metadata_dict.get("required_keys", [])
 
             # Prepare metadata (flatten for ChromaDB)
             metadata = {
                 "node_action": document.get("node_action", "unknown"),
                 "node_description": document.get("node_description", ""),
-                "success_count": document.get("metadata", {}).get("success_count", 1),
-                "created_at": document.get("metadata", {}).get("created_at", datetime.now().isoformat()),
-                "libraries_used": ",".join(document.get("metadata", {}).get("libraries_used", [])),
+                "success_count": metadata_dict.get("success_count", 1),
+                "created_at": metadata_dict.get("created_at", datetime.now().isoformat()),
+                "libraries_used": ",".join(metadata_dict.get("libraries_used", [])),
                 # Store complex fields as JSON strings
                 "input_schema": str(document.get("input_schema", {})),
                 "insights": ",".join(document.get("insights", [])),
                 "config": str(document.get("config", {})),
-                # Store required keys for filtering during search
-                "required_keys": ",".join(required_keys)
+                # Store required keys for validation (not for semantic search)
+                "required_keys": ",".join(required_keys) if required_keys else ""
             }
 
             # Add to collection
@@ -310,6 +311,7 @@ class CodeCacheService:
 
                 insights = metadata.get("insights", "").split(",") if metadata.get("insights") else []
                 libraries = metadata.get("libraries_used", "").split(",") if metadata.get("libraries_used") else []
+                required_keys = metadata.get("required_keys", "").split(",") if metadata.get("required_keys") else []
 
                 matches.append({
                     "code": results['documents'][0][i],
@@ -322,7 +324,8 @@ class CodeCacheService:
                     "metadata": {
                         "success_count": metadata.get("success_count", 1),
                         "created_at": metadata.get("created_at", ""),
-                        "libraries_used": libraries
+                        "libraries_used": libraries,
+                        "required_keys": required_keys  # Return for validation
                     }
                 })
 
@@ -342,8 +345,7 @@ class CodeCacheService:
         """
         Build searchable text from document for embedding.
 
-        Combines AI description, input schema, and insights into
-        a single text optimized for semantic search.
+        Simplified to use: Prompt + Full input schema (no insights).
 
         Args:
             document: Code cache document
@@ -355,19 +357,17 @@ class CodeCacheService:
 
         parts = []
 
-        # AI description (main signal)
+        # Prompt (main signal) - saved as-is from task
         if "ai_description" in document:
-            parts.append(document["ai_description"])
+            parts.append(f"Prompt: {document['ai_description']}")
 
-        # Input schema (structure signal)
+        # Full input schema (structure signal) - no filtering
         if "input_schema" in document:
             schema_text = json.dumps(document["input_schema"], indent=2)
-            parts.append(f"Input schema:\n{schema_text}")
+            parts.append(f"Input Schema:\n{schema_text}")
 
-        # Insights (context signal)
-        if "insights" in document and document["insights"]:
-            insights_text = "\n- ".join(document["insights"])
-            parts.append(f"Context:\n- {insights_text}")
+        # Note: insights are no longer included in semantic search
+        # They're saved for reference but don't affect similarity matching
 
         return "\n\n".join(parts)
 
