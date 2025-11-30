@@ -16,17 +16,18 @@ Schema:
 """
 
 import logging
+import os
 from typing import List, Dict, Optional
 from datetime import datetime
 
 try:
     import chromadb
     from chromadb.config import Settings
-    from sentence_transformers import SentenceTransformer
+    from openai import OpenAI
 except ImportError:
     raise ImportError(
-        "ChromaDB and sentence-transformers required. "
-        "Install with: pip install chromadb sentence-transformers"
+        "ChromaDB and OpenAI required. "
+        "Install with: pip install chromadb openai"
     )
 
 logger = logging.getLogger(__name__)
@@ -98,10 +99,11 @@ class CodeCacheService:
             )
             logger.info(f"Created new ChromaDB client at {persist_directory}")
 
-        # Initialize embedding model (same as VectorStore for consistency)
-        logger.info("Loading sentence-transformers model for code cache...")
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-        logger.info("Embedding model loaded")
+        # Initialize OpenAI client for embeddings
+        logger.info("Initializing OpenAI client for embeddings...")
+        self.openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        self.embedding_model_name = "text-embedding-3-small"
+        logger.info(f"Using OpenAI embedding model: {self.embedding_model_name}")
 
         # Get or create collection
         self.collection = self._initialize_collection()
@@ -164,12 +166,12 @@ class CodeCacheService:
             # Build searchable text for embedding
             searchable_text = self._build_searchable_text(document)
 
-            # Generate embedding
-            embedding = self.embedding_model.encode(
-                [searchable_text],
-                show_progress_bar=False,
-                convert_to_numpy=True
-            ).tolist()[0]
+            # Generate embedding with OpenAI
+            response = self.openai_client.embeddings.create(
+                input=searchable_text,
+                model=self.embedding_model_name
+            )
+            embedding = response.data[0].embedding
 
             # Generate unique ID
             doc_id = f"code_{self.collection.count()}_{datetime.now().timestamp()}"
@@ -253,12 +255,12 @@ class CodeCacheService:
             return []
 
         try:
-            # Generate query embedding
-            query_embedding = self.embedding_model.encode(
-                [query],
-                show_progress_bar=False,
-                convert_to_numpy=True
-            ).tolist()[0]
+            # Generate query embedding with OpenAI
+            response = self.openai_client.embeddings.create(
+                input=query,
+                model=self.embedding_model_name
+            )
+            query_embedding = response.data[0].embedding
 
             # Query collection (fetch more candidates if filtering by keys)
             fetch_count = top_k * 3 if available_keys else top_k
