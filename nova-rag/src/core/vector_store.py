@@ -13,11 +13,11 @@ from pathlib import Path
 try:
     import chromadb
     from chromadb.config import Settings
-    from sentence_transformers import SentenceTransformer
+    from openai import OpenAI
 except ImportError:
     raise ImportError(
-        "ChromaDB and sentence-transformers required. "
-        "Install with: pip install chromadb sentence-transformers"
+        "ChromaDB and OpenAI required. "
+        "Install with: pip install chromadb openai"
     )
 
 logger = logging.getLogger(__name__)
@@ -75,11 +75,11 @@ class VectorStore:
             )
         )
 
-        # Initialize embedding model
-        # all-MiniLM-L6-v2: Fast, lightweight, 384 dimensions
-        logger.info("Loading sentence-transformers model (all-MiniLM-L6-v2)...")
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-        logger.info("Embedding model loaded")
+        # Initialize OpenAI client for embeddings
+        logger.info("Initializing OpenAI client for embeddings...")
+        self.openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        self.embedding_model_name = "text-embedding-3-small"
+        logger.info(f"Using OpenAI embedding model: {self.embedding_model_name}")
 
         # Get or create collection
         try:
@@ -154,12 +154,12 @@ class VectorStore:
                     meta.update(doc['metadata'])
                 metadatas.append(meta)
 
-            # Generate embeddings
-            embeddings = self.embedding_model.encode(
-                texts,
-                show_progress_bar=False,
-                convert_to_numpy=True
-            ).tolist()
+            # Generate embeddings with OpenAI (batch)
+            response = self.openai_client.embeddings.create(
+                input=texts,
+                model=self.embedding_model_name
+            )
+            embeddings = [item.embedding for item in response.data]
 
             # Add to collection
             self.collection.add(
@@ -216,12 +216,12 @@ class VectorStore:
         if filter_topic:
             where_filter['topic'] = filter_topic
 
-        # Generate query embedding
-        query_embedding = self.embedding_model.encode(
-            [query_text],
-            show_progress_bar=False,
-            convert_to_numpy=True
-        ).tolist()[0]
+        # Generate query embedding with OpenAI
+        response = self.openai_client.embeddings.create(
+            input=query_text,
+            model=self.embedding_model_name
+        )
+        query_embedding = response.data[0].embedding
 
         # Query collection
         results = self.collection.query(
