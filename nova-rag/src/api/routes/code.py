@@ -27,6 +27,7 @@ class CodeSearchRequest(BaseModel):
     threshold: float = Field(0.85, ge=0.0, le=1.0, description="Minimum similarity score")
     top_k: int = Field(5, ge=1, le=20, description="Maximum results to return")
     available_keys: Optional[List[str]] = Field(None, description="Keys available in current context (for filtering)")
+    workflow_id: Optional[int] = Field(None, description="Workflow ID to filter results (only return code from same workflow)")
 
 
 class CodeMatch(BaseModel):
@@ -58,6 +59,7 @@ class CodeSaveRequest(BaseModel):
     code: str = Field(..., min_length=1, description="The Python code")
     node_action: str = Field(..., description="Action type from workflow node")
     node_description: str = Field(..., description="Description from workflow node")
+    workflow_id: Optional[int] = Field(None, description="Workflow ID for cache isolation")
     metadata: Dict = Field(
         ...,
         description="Metadata: success_count, created_at, libraries_used"
@@ -116,7 +118,8 @@ def search_code(request: CodeSearchRequest):
             query=request.query,
             threshold=request.threshold,
             top_k=request.top_k,
-            available_keys=request.available_keys
+            available_keys=request.available_keys,
+            workflow_id=request.workflow_id
         )
 
         # Convert to response format
@@ -180,6 +183,7 @@ def save_code(request: CodeSaveRequest):
             "code": request.code,
             "node_action": request.node_action,
             "node_description": request.node_description,
+            "workflow_id": request.workflow_id,
             "metadata": request.metadata
         }
 

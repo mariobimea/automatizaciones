@@ -141,6 +141,7 @@ class CodeCacheService:
                 - code (str): The Python code
                 - node_action (str): Action type
                 - node_description (str): Node description
+                - workflow_id (int, optional): Workflow ID for isolation
                 - metadata (dict): success_count, created_at, libraries_used
 
         Returns:
@@ -155,6 +156,7 @@ class CodeCacheService:
             ...     "code": "import fitz\\n...",
             ...     "node_action": "extract_pdf",
             ...     "node_description": "Extract invoice text",
+            ...     "workflow_id": 5,
             ...     "metadata": {
             ...         "success_count": 1,
             ...         "created_at": "2025-11-23T10:00:00",
@@ -193,7 +195,9 @@ class CodeCacheService:
                 "insights": ",".join(document.get("insights", [])),
                 "config": str(document.get("config", {})),
                 # Store required keys for validation (not for semantic search)
-                "required_keys": ",".join(required_keys) if required_keys else ""
+                "required_keys": ",".join(required_keys) if required_keys else "",
+                # Workflow isolation - cache is scoped per workflow
+                "workflow_id": document.get("workflow_id") if document.get("workflow_id") is not None else -1
             }
 
             # Add to collection
@@ -225,7 +229,8 @@ class CodeCacheService:
         query: str,
         threshold: float = 0.85,
         top_k: int = 5,
-        available_keys: Optional[List[str]] = None
+        available_keys: Optional[List[str]] = None,
+        workflow_id: Optional[int] = None
     ) -> List[Dict]:
         """
         Search for similar code in semantic cache.
@@ -235,6 +240,7 @@ class CodeCacheService:
             threshold: Minimum similarity score (0-1, default: 0.85)
             top_k: Maximum number of results (default: 5)
             available_keys: List of keys available in current context (for filtering)
+            workflow_id: Workflow ID to filter results (only return code from same workflow)
 
         Returns:
             List of matching code documents with scores, sorted by similarity
@@ -243,7 +249,8 @@ class CodeCacheService:
             >>> matches = cache.search_code(
             ...     query="Extract text from PDF\\nInput: pdf_data (base64)",
             ...     threshold=0.85,
-            ...     top_k=3
+            ...     top_k=3,
+            ...     workflow_id=5
             ... )
             >>>
             >>> for match in matches:
@@ -262,13 +269,20 @@ class CodeCacheService:
             )
             query_embedding = response.data[0].embedding
 
-            # Query collection (fetch more candidates if filtering by keys)
-            fetch_count = top_k * 3 if available_keys else top_k
+            # Query collection (fetch more candidates if filtering by keys or workflow)
+            fetch_count = top_k * 3 if (available_keys or workflow_id is not None) else top_k
+
+            # Build where clause for workflow_id filtering
+            where_clause = None
+            if workflow_id is not None:
+                where_clause = {"workflow_id": workflow_id}
+                logger.debug(f"Filtering semantic cache by workflow_id={workflow_id}")
 
             results = self.collection.query(
                 query_embeddings=[query_embedding],
                 n_results=fetch_count,
-                include=['documents', 'metadatas', 'distances']
+                include=['documents', 'metadatas', 'distances'],
+                where=where_clause
             )
 
             # Format and filter results
